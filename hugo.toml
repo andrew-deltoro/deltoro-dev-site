@@ -1,0 +1,61 @@
+baseURL = "https://deltoro.dev/"
+title = "Andrew del Toro"
+theme = "PaperMod"
+languageCode = "en-us"
+
+enableRobotsTXT = true
+
+[params]
+  author = "Andrew del Toro"
+  description = "Quant research, Bayesian stats, and crypto microstructure"
+  defaultTheme = "auto"
+  ShowReadingTime = true
+  ShowShareButtons = true
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+  ShowToc = true
+  TocOpen = false
+
+[params.homeInfoParams]
+  Title = "Andrew del Toro"
+  Content = """
+  Quant research. Bayesian stats. Crypto microstructure.
+
+  I build and test trading systems on Hyperliquid. Most ideas fail. I write about both.
+  """
+
+[[params.socialIcons]]
+  name = "github"
+  url = "https://github.com/andrew-deltoro"
+
+[[params.socialIcons]]
+  name = "twitter"
+  url = "https://twitter.com/yourhandle"
+
+[menu]
+  [[menu.main]]
+    identifier = "posts"
+    name = "Posts"
+    url = "/posts/"
+    weight = 10
+  [[menu.main]]
+    identifier = "about"
+    name = "About"
+    url = "/about/"
+    weight = 20
+  [[menu.main]]
+    identifier = "archive"
+    name = "Archive"
+    url = "/archives/"
+    weight = 30
+
+[markup]
+  [markup.highlight]
+    style = "monokai"
+    lineNos = false
+  [markup.goldmark.renderer]
+    unsafe = true
+
+[pagination]
+  pagerSize = 10
