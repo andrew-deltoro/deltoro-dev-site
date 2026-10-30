@@ -249,3 +249,10 @@ See `docs/launch-checklist.md` and `docs/business-assessment.md`. The short list
 - Collect two or three real testimonials after the first engagements and add a testimonial section.
 - Confirm which Coachella Valley city you want to use in local SEO and on the Google Business
   Profile. The site currently says "Coachella Valley" without a specific city.
+
+## Further reading
+
+- [How the Brave session was used](docs/how-the-brave-session-was-used.md) — the local session-reuse method and its security lessons.
+- [V1CE card resolution](docs/v1ce-card.md) — how the printed QR and NFC tap were re-pointed.
+- [Insurance and contracts](docs/insurance-and-contracts.md) — E&O, cyber, MSA, and SOW.
+- [Deploy walkthrough](docs/deploy-walkthrough.md) — GitHub Pages troubleshooting.

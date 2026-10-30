@@ -23,7 +23,7 @@ export const GET: APIRoute = async () => {
     '',
     'Andrew Del Toro is a solo IT and security consultant in the Coachella Valley. He works with small businesses (roughly 1–50 people) that have no IT department, or an IT team that is already stretched. Engagements are fixed-fee, quoted in writing after a free 20-minute call. Clients keep ownership of accounts, documentation, and repositories.',
     '',
-    'He works alongside existing IT teams when they exist, and acts as a temporary IT team when they do not.',
+    'He works alongside existing IT teams when they exist, and acts as a makeshift IT team when they do not.',
     '',
     '## Services and prices',
     '',
