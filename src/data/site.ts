@@ -9,7 +9,7 @@ export const site = {
   email: 'adeltoro702@gmail.com',
   phone: '',
   location: 'Coachella Valley, California',
-  areaServed: 'Coachella Valley & remote across California',
+  areaServed: 'Palm Springs, Palm Desert, La Quinta, Indio & remote across California',
   timezone: 'America/Los_Angeles',
   linkedin: 'https://www.linkedin.com/in/andrew-deltoro',
   github: 'https://github.com/andrew-deltoro',

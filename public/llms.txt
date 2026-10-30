@@ -2,7 +2,7 @@
 
 > Independent IT and security consultant in the Coachella Valley, California. CompTIA Security+ CE (SY0-701) certified.
 > Fixed-fee security audits, email and account hardening, backup and recovery, network cleanup, automation,
-> and websites for small businesses (1–50 people). On-site across the Coachella Valley; remote across California and the US.
+> and websites for small businesses (1–50 people). On-site in Palm Springs, Palm Desert, La Quinta, and Indio; remote across California and the US.
 
 Contact: adeltoro702@gmail.com
 Website: https://deltoro.dev

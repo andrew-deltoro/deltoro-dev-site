@@ -215,8 +215,7 @@ buffer. Put the link in `bookingUrl`. The contact page will show a direct bookin
 - Add the domain to [Google Search Console](https://search.google.com/search-console) and submit
   `https://deltoro.dev/sitemap-index.xml`.
 - Do the same in Bing Webmaster Tools.
-- Create a Google Business Profile for the service area. For a solo consultant without a storefront,
-  use a service-area business and do not display a street address.
+- Create a Google Business Profile for the service area: **Palm Springs, Palm Desert, La Quinta, and Indio**. Use a service-area business and do not display a street address.
 - Update LinkedIn and GitHub profiles to link to `https://deltoro.dev/`.
 
 ### 5. Analytics (optional)

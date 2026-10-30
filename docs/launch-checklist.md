@@ -110,7 +110,7 @@ the new site.
 - [ ] Add the site to Bing Webmaster Tools.
 - [ ] Create a Google Business Profile as a **service-area business**. Do not show a street address if you work from home.
   - Category: Computer support and services (or IT consultant).
-  - Service area: Coachella Valley (Palm Springs, Palm Desert, Rancho Mirage, Cathedral City, Indian Wells, La Quinta, Indio, Coachella, Desert Hot Springs).
+  - Service area: Palm Springs, Palm Desert, La Quinta, Indio.
   - Website: https://deltoro.dev.
   - Description: use the positioning statement from the assessment.
 - [ ] Update LinkedIn: headline, About, website field.

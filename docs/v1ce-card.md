@@ -1,84 +1,73 @@
-# V1CE card: making the NFC tap and printed QR land on deltoro.dev
+# V1CE card: what the screenshots show, and the three ways to fix it
 
 ## What the card does right now
 
-- **NFC tag** opens: https://link.v1ce.co/andrew-deltoro
-- **Printed QR** decodes to: https://link.v1ce.co/asvpdmguow/842173
-- That QR URL answers with a **301 redirect** to /andrew-deltoro, so both paths currently land on the V1CE profile page, not on this site.
-- The V1CE profile still lists **https://andrew-deltoro.netlify.app/** as the website. That needs to change regardless.
+- **NFC tap** opens https://link.v1ce.co/andrew-deltoro — your V1CE profile.
+- **Printed QR** decodes to https://link.v1ce.co/asvpdmguow/842173, which answers with a **301** to /andrew-deltoro. So the QR also lands on the profile.
+- The profile still lists the old Netlify site as its website.
 
-## The destination
+## What your dashboard screenshots show
 
-The site now has a focused card landing page at:
+The Co-Work panel says you have **no QR code and 0 scans**, and that there is no NFC settings screen. That is consistent with the **free / legacy V1CE dashboard**, not ClientCapture OS. The printed QR on the bamboo card is a legacy QR that was generated with the physical card; it is not exposed in your dashboard's QR Code feature.
 
-**https://deltoro.dev/card**
+That explains the confusion: the dashboard's QR builder is empty because the printed QR was never a dashboard QR code. It is a static legacy short link that redirects to your profile.
 
-It is built for a phone in the hand: name, Security+ badge, a book-a-call button, email, a downloadable contact card, the work, and the free checkup. It is marked noindex so it does not compete with the homepage in search.
+Co-Work's suggestion to add a QR on the Sharing tab would create a **new** QR code. It would not change the one already printed on the card.
 
-If you prefer the homepage, use https://deltoro.dev/ instead. The rest of this document assumes /card.
+## The three real options
 
-## How to change it in V1CE
+### 1. Ask V1CE support to re-point the legacy QR and NFC link (best)
 
-V1CE's dashboard has two relevant tools: **QR Codes** (each QR can point at a profile or a URL) and **Direct links** (a short link that sends a visitor straight to a URL). The printed QR is likely a QR Code record; the NFC chip is the card assignment.
+V1CE's own help centre says they re-point legacy cards for free, usually within one business day. Send this from the support chat in the dashboard or to V1CE support:
 
-### First, check the QR Codes list
-
-1. Sign in at **https://app.v1ce.co**.
-2. Open **QR Codes** and look for the code whose short link ends in **asvpdmguow/842173** (or whose name matches the card).
-3. If it is there, edit it and change the destination from **Profile** to **URL**.
-4. Enter **https://deltoro.dev/card** and save.
-5. Scan the printed QR. If it opens the new page, the QR is done.
-
-If the QR is not listed, it was printed from the card itself and cannot be edited from the QR screen. Use the card reassignment below, then contact support if the QR still opens the profile.
-
-### Then, move the NFC card to a direct link
-
-V1CE's dashboard supports a **Direct link** product: a short link that sends a visitor straight to a URL instead of showing the profile page. The card can then be assigned to that direct link.
-
-1. Sign in at **https://app.v1ce.co**.
-2. Go to **Links** (or the page/link list) and choose **Create link**.
-3. Pick **Direct link** (V1CE describes it as "one click sends people straight to any website you choose").
-4. Set the destination to **https://deltoro.dev/card**.
-5. Save it and copy the new V1CE link.
-6. Open **Settings → NFC Cards**, find your bamboo card, and open it.
-7. Choose **Unlink** from the current andrew-deltoro page.
-8. Choose **Assign** and select the new direct link.
-9. Save.
-
-Then test both paths:
-
-- Tap the card on the back of a phone. It should open deltoro.dev/card.
-- Scan the printed QR with a phone camera. It should open deltoro.dev/card as well.
-
-## If the printed QR still opens the profile
-
-The QR is printed, so the pixels cannot change. What can change is where the URL behind it points. V1CE's help centre says printed QR codes cannot be edited, and that their team re-points legacy cards on request. If reassigning the card fixes the tap but not the QR, send V1CE support this message:
-
-> Hi — I have a V1CE bamboo card and I need both the NFC tap and the printed QR code to open my website instead of my V1CE profile.
+> Hi — I have a V1CE bamboo card on the free/legacy plan. My dashboard has no QR code entry and no NFC settings, and Co-Work confirms there is no QR code on the account.
+>
+> I need the NFC tap and the printed QR to open my website instead of my V1CE profile.
 >
 > Account email: adeltoro702@gmail.com
 > Card ID (last 4): [FILL IN FROM THE CARD SLEEVE]
 > Current NFC URL: https://link.v1ce.co/andrew-deltoro
-> Printed QR URL (decoded): https://link.v1ce.co/asvpdmguow/842173
+> Printed QR URL: https://link.v1ce.co/asvpdmguow/842173
 > Desired destination: https://deltoro.dev/card
 >
-> I have created a Direct link to that destination. Please re-point the card's NFC link and the printed QR URL to it. If the QR URL cannot be changed, please tell me what the options are.
+> Please re-point the card's NFC link and the printed QR short URL to that destination. If the QR cannot be changed, please tell me the options.
 
-Support is reachable from the chat widget in the dashboard or the help centre at https://support.v1ce.co.
+You can also ask them to make https://link.v1ce.co/andrew-deltoro itself a direct link to https://deltoro.dev/card. Because the printed QR redirects to that slug, changing what that slug serves would fix the QR without touching the printed code.
 
-## Meanwhile, update the profile
+### 2. Rewrite the NFC chip yourself (fixes the tap only)
 
-Even after the redirect works, the old profile may still be indexed or cached. Sign in and:
+Most V1CE chips are rewritable with an app such as **NFC Tools** (iOS/Android):
 
-- Change the profile website from the Netlify URL to **https://deltoro.dev**.
-- Update the bio to the current positioning: "IT and security consulting for small businesses in the Coachella Valley. Security+ certified."
-- Add a prominent link labelled **Website** or **Book a call** pointing to https://deltoro.dev/card.
-- Update the profile photo if the current one is outdated.
+1. Open NFC Tools → Write → Add a record → URL.
+2. Enter https://deltoro.dev/card.
+3. Hold the phone against the card and write.
+4. Test the tap before relying on it.
 
-## If you ever rewrite the NFC tag
+This does not change the printed QR. Do this only if you are comfortable rewriting the tag; if the chip is locked, the write will fail harmlessly.
 
-The chip is usually rewritable with an app such as NFC Tools. You could write https://deltoro.dev/card directly to it and remove V1CE from the tap path entirely. The printed QR would still go through V1CE, so this only helps the tap unless the QR destination is also fixed.
+### 3. Cover the printed QR with a new label (fallback)
 
-## What I could not do from here
+I generated a print-ready label at **docs/card-qr-label.png**. It decodes to https://deltoro.dev/card and includes your name and the short URL.
 
-I do not have your V1CE login, so I could not make the dashboard change or contact support on your behalf. The site destination and the instructions are ready; the last step is in your V1CE account.
+- Print it at about 30 mm wide on white sticker paper.
+- Trim it and place it over the old QR on the bamboo card, or use it on future cards, flyers, and a desk sign.
+- It is a white label on a bamboo card, so it is a fallback, not the ideal finish.
+
+## Also update the profile
+
+Until the redirect is fixed, the profile is what people see. Sign in at https://app.v1ce.co and:
+
+- Change the website from the old Netlify URL to https://deltoro.dev.
+- Update the bio to: "IT and security consulting for small businesses in the Coachella Valley. Security+ certified."
+- Add a link labelled **Website** or **Book a call** to https://deltoro.dev/card.
+
+## Do not upgrade just for this
+
+ClientCapture OS is the paid plan with QR management and direct links. It may make the dashboard nicer, but V1CE support can re-point the legacy card without a subscription. Upgrade only if you want the CRM/lead-capture features.
+
+## What I need from you
+
+1. The **last four digits of the card ID** (on the card sleeve) so the support message is actionable.
+2. Whether you want me to keep going on the support route, or whether you would rather log in and let me drive the dashboard in a browser session. I will not ask you to paste your password here.
+
+The site destination is live at https://deltoro.dev/card. The only missing piece is V1CE's backend redirect.
