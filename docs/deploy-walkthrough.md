@@ -116,6 +116,7 @@ Then, only after the clone exists:
 | `remote origin already exists` | You ran `git remote add` twice | `git remote set-url origin https://github.com/andrew-deltoro/deltoro-dev-site.git` |
 | `Repository not found` | Wrong repo name, or not authenticated | Use `deltoro-dev-site`; run `gh auth login` |
 | `Authentication failed` | Account password used | Use `gh auth login` or a personal access token |
+| `GH007: Your push would publish a private email address` | Commit author email is a private address | Set `git config user.email "<id>+andrew-deltoro@users.noreply.github.com"` and rewrite the unpushed commit; or disable email privacy in GitHub settings |
 | `Updates were rejected because the remote contains work` | Unrelated histories | Back up, then `git push --force-with-lease origin main` |
 | Actions: `Get Pages site failed` | Pages source is not GitHub Actions | Settings → Pages → Source: GitHub Actions |
 | Actions: `npm ci` fails | Lockfile out of sync | Run `npm install` locally, commit `package-lock.json`, push again |
