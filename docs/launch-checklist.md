@@ -96,12 +96,11 @@ The card's NFC tag opens https://link.v1ce.co/andrew-deltoro and the printed QR 
 https://link.v1ce.co/asvpdmguow/842173, which redirects to the same profile. Both need to point at
 the new site.
 
-- [ ] Sign in at https://app.v1ce.co.
-- [ ] Create a **Direct link** (Links → Create link → Direct link) to https://deltoro.dev/card.
-- [ ] Go to Settings → NFC Cards → your bamboo card → Unlink, then Assign the new direct link.
-- [ ] Tap the card and scan the printed QR. Both should open deltoro.dev/card.
-- [ ] If the QR still opens the old profile, contact V1CE support with the message in docs/v1ce-card.md.
-- [ ] Update the old profile website from the Netlify URL to https://deltoro.dev while you are there.
+- [x] Sign in at https://app.v1ce.co.
+- [x] Pages → Link → Redirect visitors → https://deltoro.dev/card.
+- [x] Profile updated: IT & Security Consultant, Coachella Valley, https://deltoro.dev.
+- [x] Tap the card and scan the printed QR. Both now redirect to deltoro.dev/card.
+- [ ] After any V1CE plan change, re-check that Redirect visitors is still on.
 
 ## 5. Search and local presence (45 minutes)
 

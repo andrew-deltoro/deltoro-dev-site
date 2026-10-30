@@ -241,8 +241,8 @@ See `docs/launch-checklist.md` and `docs/business-assessment.md`. The short list
 
 - Decide on the legal entity and insurance before larger engagements. See
   `docs/insurance-and-contracts.md`.
-- Point the V1CE NFC card and printed QR at `https://deltoro.dev/card`. See
-  `docs/v1ce-card.md`.
+- The V1CE redirect is configured (Pages → Link → Redirect visitors → `https://deltoro.dev/card`).
+  Re-check it after any plan change. See `docs/v1ce-card.md`.
 - Provide a headshot (the site currently uses the badge and typography instead).
 - Set the booking link and form endpoint.
 - Switch the email address once `hello@deltoro.dev` is receiving mail.
