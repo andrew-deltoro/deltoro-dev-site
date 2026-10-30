@@ -251,7 +251,7 @@ export const faqs = [
   },
   {
     q: 'We do not have an IT team. Can you still help?',
-    a: 'No IT team? No worries. Think of me as your temporary IT team to perform the improvements you are looking for. I handle the work, document what changed, and leave you with something you can hand to the next person. If you want ongoing coverage afterward, the care plan exists for exactly that.',
+    a: 'No IT team? No worries. Think of me as your IT team to perform the improvements you are looking for. I handle the work, document what changed, and leave you with something you can hand to the next person. If you want ongoing coverage afterward, the care plan exists for exactly that.',
   },
   {
     q: 'How does pricing actually work?',

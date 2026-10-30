@@ -255,4 +255,5 @@ See `docs/launch-checklist.md` and `docs/business-assessment.md`. The short list
 - [How the Brave session was used](docs/how-the-brave-session-was-used.md) — the local session-reuse method and its security lessons.
 - [V1CE card resolution](docs/v1ce-card.md) — how the printed QR and NFC tap were re-pointed.
 - [Insurance and contracts](docs/insurance-and-contracts.md) — E&O, cyber, MSA, and SOW.
+- [Email options](docs/email-options.md) — free forwarding and mailbox choices for deltoro.dev.
 - [Deploy walkthrough](docs/deploy-walkthrough.md) — GitHub Pages troubleshooting.

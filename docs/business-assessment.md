@@ -10,7 +10,7 @@
 
 The idea is viable, but it is not the business the old site was describing.
 
-The old site said: *"I'm looking for an entry-level IT or security role."* That is a job-search page. It asks a hiring manager to take a chance on you. The new site says: *"Your makeshift IT team."* That is a business page. It asks an owner with a problem to buy a defined outcome.
+The old site said: *"I'm looking for an entry-level IT or security role."* That is a job-search page. It asks a hiring manager to take a chance on you. The new site says: *"Your IT team."* That is a business page. It asks an owner with a problem to buy a defined outcome.
 
 Those are different products, different buyers, and different pricing. The rebuild makes the second one real. The remaining work is not web design — it is proof, process, and protection:
 
@@ -170,7 +170,7 @@ Those are the five things to acquire in the first 90 days. The website has a pla
 
 ### What the new site does well
 
-- **One clear promise above the fold:** "Your makeshift IT team." It is memorable and it explains the engagement model.
+- **One clear promise above the fold:** "Your IT team." It is memorable and it explains the engagement model.
 - **Pricing is visible.** Most competitors hide it. Visible starting prices build trust and filter unqualified leads.
 - **Proof is clickable.** Twelve case studies, live demos, and screenshots. The PySIEM demo in the hero is a strong first impression for a technical buyer.
 - **The required language is present verbatim** in the team section, and repeated in context on the services page.
@@ -292,7 +292,7 @@ Track these weekly in a spreadsheet. Ignore page views.
 | Old site | New site |
 | --- | --- |
 | "Security Analyst & Builder" | "IT & Security Consulting" |
-| "I'm looking for an entry-level role" | "Your makeshift IT team" |
+| "I'm looking for an entry-level role" | "Your IT team" |
 | Eight project cards with one-line descriptions | Twelve case studies with problem, build, outcome, and "what this proves" |
 | No pricing | Seven offers with starting prices, hourly, add-ons, and payment terms |
 | Email + LinkedIn only | Contact form, booking-ready, free checkup, response promise |
