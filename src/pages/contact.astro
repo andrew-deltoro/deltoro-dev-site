@@ -1,0 +1,269 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site, services } from '../data/site';
+
+const description =
+  'Book a free 20-minute IT or security consultation with Andrew Del Toro in the Coachella Valley. Tell me what is broken and I will tell you what I would fix first.';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ContactPage',
+  name: 'Contact Andrew Del Toro',
+  url: `${site.url}/contact/`,
+  mainEntity: {
+    '@type': 'ProfessionalService',
+    name: site.name,
+    email: `mailto:${site.email}`,
+    url: site.url,
+    areaServed: 'Coachella Valley, California',
+  },
+};
+---
+
+<BaseLayout title={`Contact — ${site.name}`} description={description} jsonLd={jsonLd}>
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="eyebrow">Contact</p>
+      <h1>Tell me what is broken.</h1>
+      <p class="lead">
+        The more specific you are, the more useful my first reply will be. Tell me what is happening, what you have
+        already tried, and what it is costing you. I answer every inquiry within {site.responseTime}.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0;border-top:0">
+    <div class="wrap contact-grid">
+      <h2 class="visually-hidden">Send an inquiry</h2>
+      <div>
+        <form
+          class="form"
+          id="contact-form"
+          method="POST"
+          action={site.formEndpoint || `mailto:${site.email}`}
+          data-endpoint={site.formEndpoint}
+          data-email={site.email}
+        >
+          <div class="form-row">
+            <div class="field">
+              <label for="name">Your name</label>
+              <input id="name" name="name" type="text" required autocomplete="name" />
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" required autocomplete="email" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="field">
+              <label for="company">Business name <span style="text-transform:none;letter-spacing:0">(optional)</span></label>
+              <input id="company" name="company" type="text" autocomplete="organization" />
+            </div>
+            <div class="field">
+              <label for="service">What do you need?</label>
+              <select id="service" name="service">
+                <option value="Not sure yet">Not sure yet</option>
+                {services.map((s) => <option value={s.name}>{s.name}</option>)}
+                <option value="Something else">Something else</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="budget">Budget range</label>
+            <select id="budget" name="budget">
+              <option value="Not sure yet">Not sure yet</option>
+              <option value="Under $1,000">Under $1,000</option>
+              <option value="$1,000 – $3,000">$1,000 – $3,000</option>
+              <option value="$3,000 – $7,500">$3,000 – $7,500</option>
+              <option value="$7,500+">$7,500+</option>
+              <option value="Ongoing support">Ongoing support</option>
+            </select>
+            <span class="hint">A rough range is fine. It helps me tell you what is realistic instead of guessing.</span>
+          </div>
+
+          <div class="field">
+            <label for="message">What is going on?</label>
+            <textarea id="message" name="message" required placeholder="Example: We are a 14-person clinic on Microsoft 365. Nobody has looked at the tenant since 2022, our old office manager still has admin, and we are not sure the backup actually runs."></textarea>
+          </div>
+
+          <div class="hp" aria-hidden="true">
+            <label for="_gotcha">Leave this field empty</label>
+            <input id="_gotcha" name="_gotcha" type="text" tabindex="-1" autocomplete="off" />
+          </div>
+
+          <div style="display:flex;flex-wrap:wrap;gap:1rem;align-items:center">
+            <button class="btn btn--accent" type="submit">Send inquiry <span class="arrow" aria-hidden="true">→</span></button>
+            <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+          </div>
+
+          <p class="small" style="margin:0">
+            Your details are used to reply to this inquiry and nothing else. See the
+            <a class="text-link" href="/privacy">privacy note</a>. Prefer email? Write to
+            <a class="text-link" href={`mailto:${site.email}`}>{site.email}</a>.
+          </p>
+        </form>
+      </div>
+
+      <aside class="contact-aside">
+        <div class="box">
+          <h2>Direct</h2>
+          <p class="small" style="margin-bottom:0.4rem">Email is the fastest way to reach me.</p>
+          <p style="margin:0"><a href={`mailto:${site.email}`}>{site.email}</a></p>
+          {site.phone && <p style="margin:0.3rem 0 0"><a href={`tel:${site.phone.replace(/[^+\d]/g, '')}`}>{site.phone}</a></p>}
+          <p class="small" style="margin-top:0.6rem">
+            <a href={site.linkedin} target="_blank" rel="noopener">LinkedIn ↗</a> ·
+            <a href={site.github} target="_blank" rel="noopener">GitHub ↗</a>
+          </p>
+          <p class="small" style="margin-top:0.4rem"><a href="/andrew-deltoro.vcf" download>Save my contact card (.vcf)</a></p>
+        </div>
+
+        <div class="box">
+          <h2>What happens next</h2>
+          <ul>
+            <li>I reply within {site.responseTime}, usually with two or three questions.</li>
+            <li>If it looks like a fit, we book a free 20-minute call.</li>
+            <li>You get a written scope and a fixed price — or an honest referral.</li>
+          </ul>
+        </div>
+
+        <div class="box">
+          <h2>Where I work</h2>
+          <p class="small">
+            Based in {site.location}. On-site across the Coachella Valley; remote anywhere in California and the US.
+            Most account, email, cloud, and automation work is done remotely.
+          </p>
+        </div>
+
+        <div class="box">
+          <h2>Already know what you need?</h2>
+          <p class="small">
+            Run the free <a class="text-link" href="/checkup">5-minute security checkup</a> and send me the results.
+            It gives us a head start on the call.
+          </p>
+        </div>
+
+        {site.bookingUrl && (
+          <div class="box">
+            <h2>Book directly</h2>
+            <a class="btn btn--accent btn--sm" href={site.bookingUrl} target="_blank" rel="noopener">
+              Open my calendar <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        )}
+      </aside>
+    </div>
+  </section>
+
+  <section class="section dark">
+    <div class="wrap contact-close" style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:center">
+      <div>
+        <p class="eyebrow">No pressure</p>
+        <h2>Not ready to talk?</h2>
+        <p class="lead" style="margin-top:1rem">
+          Read a case study, run the checkup, or just email a question. There is no funnel and no follow-up sequence.
+        </p>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:0.7rem;justify-content:flex-end">
+        <a class="btn btn--ghost" href="/work">Browse the work</a>
+        <a class="btn btn--accent" href="/checkup">Take the checkup</a>
+      </div>
+    </div>
+  </section>
+<Fragment slot="body-end">
+<script is:inline>
+  (() => {
+    const form = document.getElementById('contact-form');
+    if (!form) return;
+    const status = document.getElementById('form-status');
+    const endpoint = form.dataset.endpoint;
+    const email = form.dataset.email;
+
+    // Preselect a service from ?service=...
+    const params = new URLSearchParams(window.location.search);
+    const requested = params.get('service');
+    if (requested) {
+      const select = document.getElementById('service');
+      if (select) {
+        const match = Array.from(select.options).find((o) => o.value.toLowerCase() === requested.toLowerCase());
+        if (match) select.value = match.value;
+      }
+    }
+
+    const setStatus = (message, state) => {
+      if (!status) return;
+      status.textContent = message;
+      if (state) status.dataset.state = state;
+      else delete status.dataset.state;
+    };
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const data = new FormData(form);
+
+      if (data.get('_gotcha')) return;
+
+      const name = String(data.get('name') || '').trim();
+      const replyTo = String(data.get('email') || '').trim();
+      const company = String(data.get('company') || '').trim();
+      const service = String(data.get('service') || '');
+      const budget = String(data.get('budget') || '');
+      const message = String(data.get('message') || '').trim();
+
+      if (!name || !replyTo || !message) {
+        setStatus('Add your name, email, and a sentence about the problem.', 'error');
+        return;
+      }
+
+      const subject = `Project inquiry — ${company || name}`;
+      const body = [
+        `Name: ${name}`,
+        `Email: ${replyTo}`,
+        company ? `Business: ${company}` : '',
+        `Service: ${service}`,
+        `Budget: ${budget}`,
+        '',
+        message,
+      ]
+        .filter(Boolean)
+        .join('\n');
+
+      if (!endpoint) {
+        setStatus('Opening your email app with the message filled in…');
+        window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        return;
+      }
+
+      const button = form.querySelector('button[type="submit"]');
+      if (button) button.disabled = true;
+      setStatus('Sending…');
+
+      try {
+        const response = await fetch(endpoint, {
+          method: 'POST',
+          body: data,
+          headers: { Accept: 'application/json' },
+        });
+        if (!response.ok) throw new Error('Request failed');
+        window.location.href = '/thanks/';
+      } catch (error) {
+        setStatus('That did not send. Email me directly at ' + email + '.', 'error');
+        if (button) button.disabled = false;
+      }
+    });
+  })();
+</script>
+</Fragment>
+</BaseLayout>
+
+<style>
+  @media (max-width: 760px) {
+    .contact-close {
+      grid-template-columns: 1fr !important;
+    }
+    .contact-close > div:last-child {
+      justify-content: flex-start !important;
+    }
+  }
+</style>

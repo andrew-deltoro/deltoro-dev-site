@@ -1,0 +1,154 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../data/site';
+
+const description = 'Andrew Del Toro — IT and security consulting in the Coachella Valley. Book a call, email, or save contact details.';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: site.name,
+  jobTitle: site.role,
+  url: site.url,
+  email: `mailto:${site.email}`,
+  address: { '@type': 'PostalAddress', addressLocality: 'Coachella Valley', addressRegion: 'CA', addressCountry: 'US' },
+  sameAs: [site.linkedin, site.github, site.credly],
+};
+---
+
+<BaseLayout title={`${site.name} — contact card`} description={description} noindex={true} bare={true} jsonLd={jsonLd}>
+  <section class="card-landing dark">
+    <div class="wrap card-inner">
+      <div class="card-top">
+        <img src="/images/credly-security-plus.png" alt="CompTIA Security+ Certified badge" width="72" height="72" />
+        <p class="mono" style="color:var(--accent-ink);margin:0">Security+ CE · SY0-701</p>
+      </div>
+
+      <p class="eyebrow">You tapped my card</p>
+      <h1>Andrew<br />Del Toro.</h1>
+      <p class="card-role">IT &amp; security consultant · Coachella Valley</p>
+
+      <p class="card-blurb">
+        I help small businesses fix the security, backup, and automation problems that keep getting postponed.
+        Fixed fees, plain English, and documentation you own.
+      </p>
+
+      <div class="card-actions">
+        <a class="btn btn--accent" href="/contact">Book a 20-minute call <span class="arrow" aria-hidden="true">→</span></a>
+        <a class="btn" href={`mailto:${site.email}`}>Email me</a>
+        <a class="btn btn--ghost" href="/andrew-deltoro.vcf" download>Save my contact</a>
+        <a class="btn btn--ghost" href="/work">See the work</a>
+      </div>
+
+      <div class="card-links">
+        <a href={`mailto:${site.email}`}>{site.email}</a>
+        <a href={site.linkedin} target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a href={site.github} target="_blank" rel="noopener">GitHub ↗</a>
+        <a href="/checkup">Free checkup</a>
+      </div>
+
+      <p class="card-foot">deltoro.dev · Coachella Valley, California</p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .card-landing {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-block: clamp(3rem, 7vw, 6rem);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card-landing::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.09) 1px, transparent 0);
+    background-size: 28px 28px;
+    mask-image: radial-gradient(ellipse at 30% 20%, #000, transparent 70%);
+    pointer-events: none;
+  }
+
+  .card-inner {
+    position: relative;
+    max-width: 640px;
+  }
+
+  .card-top {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2.4rem;
+  }
+
+  .card-top img {
+    width: 72px;
+    height: 72px;
+  }
+
+  .card-inner h1 {
+    font-size: clamp(3rem, 9vw, 4.6rem);
+    line-height: 0.92;
+    letter-spacing: -0.04em;
+    max-width: 12ch;
+  }
+
+  .card-role {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent-ink);
+    margin-top: 1.4rem;
+  }
+
+  .card-blurb {
+    font-size: 1.1rem;
+    line-height: 1.55;
+    color: var(--muted);
+    margin-top: 1.4rem;
+    max-width: 48ch;
+  }
+
+  .card-actions {
+    display: grid;
+    gap: 0.6rem;
+    margin-top: 2rem;
+  }
+
+  .card-actions .btn {
+    width: 100%;
+    justify-content: space-between;
+    padding: 1rem 1.15rem;
+  }
+
+  .card-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem 1.2rem;
+    margin-top: 1.4rem;
+    font-size: 0.86rem;
+  }
+
+  .card-links a {
+    color: var(--muted);
+    text-decoration: none;
+    border-bottom: 1px solid var(--line-strong);
+  }
+
+  .card-links a:hover {
+    color: var(--accent-ink);
+  }
+
+  .card-foot {
+    margin-top: 3rem;
+    font-family: var(--mono);
+    font-size: 0.64rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+</style>

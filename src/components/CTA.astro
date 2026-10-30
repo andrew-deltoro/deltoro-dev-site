@@ -1,0 +1,39 @@
+---
+import { site } from '../data/site';
+
+interface Props {
+  title?: string;
+  body?: string;
+  primaryLabel?: string;
+  primaryHref?: string;
+}
+
+const {
+  title = 'Let’s get the boring stuff working.',
+  body = 'A 20-minute call, no deck and no pressure. You leave with a straight answer about what to fix first — even if you never hire me.',
+  primaryLabel = 'Book a free 20-minute call',
+  primaryHref = '/contact',
+} = Astro.props;
+---
+
+<section class="section dark cta-band">
+  <div class="wrap cta-grid">
+    <div>
+      <p class="eyebrow">Next step</p>
+      <h2>{title}</h2>
+      <p class="lead" style="margin-top:1.2rem">{body}</p>
+      <div class="cta-actions">
+        <a class="btn btn--accent" href={primaryHref}>{primaryLabel} <span class="arrow" aria-hidden="true">→</span></a>
+        <a class="btn btn--ghost" href={`mailto:${site.email}`}>{site.email}</a>
+      </div>
+    </div>
+    <div>
+      <dl class="facts" style="border-color:var(--line)">
+        <div><dt>Response</dt><dd>Within {site.responseTime}</dd></div>
+        <div><dt>Based in</dt><dd>{site.location}</dd></div>
+        <div><dt>Coverage</dt><dd>{site.areaServed}</dd></div>
+        <div><dt>Credential</dt><dd>{site.credential}</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>

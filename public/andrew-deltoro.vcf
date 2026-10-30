@@ -1,0 +1,13 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Del Toro;Andrew;;;
+FN:Andrew Del Toro
+ORG:Andrew Del Toro — IT & Security Consulting
+TITLE:IT & Security Consultant
+EMAIL;type=WORK,INTERNET:adeltoro702@gmail.com
+URL:https://deltoro.dev
+ADR;type=WORK:;;Coachella Valley;CA;;USA
+NOTE:CompTIA Security+ CE (SY0-701). IT and security consulting for small businesses in the Coachella Valley.
+X-SOCIALPROFILE;type=linkedin:https://www.linkedin.com/in/andrew-deltoro
+X-SOCIALPROFILE;type=github:https://github.com/andrew-deltoro
+END:VCARD

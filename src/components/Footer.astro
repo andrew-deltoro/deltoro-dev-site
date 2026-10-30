@@ -1,0 +1,52 @@
+---
+import { site } from '../data/site';
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer dark">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a class="logo" href="/">deltoro<span class="dot">.</span><span class="tld">dev</span></a>
+        <p>
+          IT and security consulting for small businesses across the Coachella Valley.
+          Fixed fees, plain English, and documentation you actually own.
+        </p>
+        <p class="mono" style="margin-top:1.2rem;color:var(--green)">
+          <span aria-hidden="true">●</span> {site.availability}
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h2>Site</h2>
+        <ul>
+          <li><a href="/services">Services & pricing</a></li>
+          <li><a href="/work">Work</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/checkup">Free security checkup</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h2>Elsewhere</h2>
+        <ul>
+          <li><a href={`mailto:${site.email}`}>{site.email}</a></li>
+          {site.phone && <li><a href={`tel:${site.phone.replace(/[^+\d]/g, '')}`}>{site.phone}</a></li>}
+          <li><a href={site.linkedin} target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href={site.github} target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href={site.credly} target="_blank" rel="noopener">Verify Security+</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© {year} {site.name} · {site.location}</span>
+      <a class="credly" href={site.credly} target="_blank" rel="noopener">
+        <img src="/images/credly-security-plus.png" alt="" width="22" height="22" loading="lazy" />
+        CompTIA Security+ CE
+      </a>
+      <span><a href="/privacy">Privacy</a> · Built by hand · No trackers</span>
+    </div>
+  </div>
+</footer>

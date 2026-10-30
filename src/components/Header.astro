@@ -1,0 +1,29 @@
+---
+const path = Astro.url.pathname;
+const links = [
+  { href: '/services', label: 'Services' },
+  { href: '/work', label: 'Work' },
+  { href: '/about', label: 'About' },
+  { href: '/checkup', label: 'Free checkup' },
+];
+const isActive = (href: string) => path === href || path === href + '/' || (href !== '/' && path.startsWith(href + '/'));
+---
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="logo" href="/" aria-label="deltoro.dev — home">
+      deltoro<span class="dot">.</span><span class="tld">dev</span>
+    </a>
+
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
+      Menu
+    </button>
+
+    <nav class="nav" id="primary-nav" aria-label="Primary">
+      {links.map((link) => (
+        <a href={link.href} aria-current={isActive(link.href) ? 'page' : undefined}>{link.label}</a>
+      ))}
+      <a class="nav-cta" href="/contact" aria-current={isActive('/contact') ? 'page' : undefined}>Book a call</a>
+    </nav>
+  </div>
+</header>

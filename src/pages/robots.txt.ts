@@ -1,0 +1,43 @@
+import type { APIRoute } from 'astro';
+
+export const GET: APIRoute = () =>
+  new Response(
+    [
+      '# deltoro.dev — crawl policy',
+      '# Search and AI answer engines are welcome. The site is public marketing content.',
+      '',
+      'User-agent: *',
+      'Allow: /',
+      '',
+      '# Search-augmented / citation crawlers',
+      'User-agent: OAI-SearchBot',
+      'Allow: /',
+      '',
+      'User-agent: PerplexityBot',
+      'Allow: /',
+      '',
+      'User-agent: Google-Extended',
+      'Allow: /',
+      '',
+      'User-agent: Applebot-Extended',
+      'Allow: /',
+      '',
+      '# General AI crawlers',
+      'User-agent: GPTBot',
+      'Allow: /',
+      '',
+      'User-agent: ClaudeBot',
+      'Allow: /',
+      '',
+      'User-agent: Claude-SearchBot',
+      'Allow: /',
+      '',
+      '# Aggressive scrapers that provide no referral value',
+      'User-agent: Bytespider',
+      'Disallow: /',
+      '',
+      'Sitemap: https://deltoro.dev/sitemap-index.xml',
+      '',
+    ].join('\n'),
+    { headers: { 'Content-Type': 'text/plain; charset=utf-8' } }
+  );

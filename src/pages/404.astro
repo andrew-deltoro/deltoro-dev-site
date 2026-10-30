@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../data/site';
+---
+
+<BaseLayout title={`Page not found — ${site.name}`} description="That page does not exist." noindex={true}>
+  <section class="section" style="min-height:64vh;display:flex;align-items:center">
+    <div class="wrap" style="max-width:760px">
+      <p class="eyebrow">404</p>
+      <h1>This page never shipped.</h1>
+      <p class="lead" style="margin-top:1.2rem">
+        The link is broken, the page moved, or it never existed. Nothing dramatic.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn--accent" href="/">Back to the homepage</a>
+        <a class="btn btn--ghost" href="/work">See the work</a>
+        <a class="btn btn--ghost" href="/contact">Contact me</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

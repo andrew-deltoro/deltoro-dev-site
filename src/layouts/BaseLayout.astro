@@ -1,0 +1,141 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { site } from '../data/site';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  type?: 'website' | 'article' | 'profile';
+  noindex?: boolean;
+  bare?: boolean;
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[];
+}
+
+const {
+  title = site.title,
+  description = site.description,
+  image = '/og/default.png',
+  type = 'website',
+  noindex = false,
+  bare = false,
+  jsonLd,
+} = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, site.url).href;
+const ogImage = new URL(image, site.url).href;
+const ld = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <script is:inline>document.documentElement.classList.add('js');</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow, max-image-preview:large'} />
+    <meta name="author" content={site.name} />
+    <meta name="theme-color" content="#0d1520" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <link rel="preload" href="/fonts/Archivo-400-900.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/IBMPlexMono-400.woff2" as="font" type="font/woff2" crossorigin />
+
+    <noscript>
+      <style>
+        .menu-toggle { display: none !important; }
+        @media (max-width: 860px) {
+          .header-inner { flex-wrap: wrap; padding-block: 0.6rem; }
+          #primary-nav { position: static; display: flex !important; flex-direction: row; flex-wrap: wrap; width: 100%; gap: 0.4rem 1rem; padding: 0.4rem 0; background: none; border: 0; box-shadow: none; }
+          #primary-nav a { border: 0; padding: 0.25rem 0; font-size: 0.86rem; }
+          #primary-nav .nav-cta { display: inline-flex; margin: 0; padding: 0.25rem 0; background: none; border: 0; color: var(--text); font-weight: 500; font-size: 0.86rem; }
+        }
+      </style>
+    </noscript>
+
+    <meta property="og:type" content={type} />
+    <meta property="og:site_name" content={site.title} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={`${site.name} — ${site.role}`} />
+    <meta property="og:locale" content="en_US" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    {ld.map((item) => <script type="application/ld+json" set:html={JSON.stringify(item)} />)}
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    {!bare && <Header />}
+    <main id="main">
+      <slot />
+    </main>
+    {!bare && <Footer />}
+
+    <script is:inline>
+      (() => {
+        const toggle = document.querySelector('.menu-toggle');
+        const nav = document.querySelector('#primary-nav');
+        if (toggle && nav) {
+          const close = () => {
+            nav.classList.remove('is-open');
+            toggle.setAttribute('aria-expanded', 'false');
+          };
+          toggle.addEventListener('click', () => {
+            const open = nav.classList.toggle('is-open');
+            toggle.setAttribute('aria-expanded', String(open));
+          });
+          nav.addEventListener('click', (e) => {
+            if (e.target instanceof Element && e.target.closest('a')) close();
+          });
+          document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') close();
+          });
+        }
+
+        const items = document.querySelectorAll('.reveal');
+        const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (reduce || !('IntersectionObserver' in window)) {
+          items.forEach((el) => el.classList.add('is-in'));
+        } else {
+          const io = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  entry.target.classList.add('is-in');
+                  io.unobserve(entry.target);
+                }
+              });
+            },
+            { rootMargin: '0px 0px -8% 0px', threshold: 0.08 }
+          );
+          items.forEach((el) => io.observe(el));
+        }
+
+        document.querySelectorAll('a[href^="http"]').forEach((a) => {
+          if (a.hostname && a.hostname !== location.hostname) {
+            a.setAttribute('rel', 'noopener');
+          }
+        });
+      })();
+    </script>
+    <slot name="body-end" />
+  </body>
+</html>

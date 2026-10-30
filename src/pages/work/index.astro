@@ -1,0 +1,102 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import CTA from '../../components/CTA.astro';
+import { site } from '../../data/site';
+
+const projects = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);
+const categories = ['All', ...Array.from(new Set(projects.map((p) => p.data.category)))];
+const description =
+  'Twelve projects built in 2026: a SIEM, learning platforms, automation pipelines, AI experiments, and websites. Each with a case study and, where public, a live demo.';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'Work — Andrew Del Toro',
+  url: `${site.url}/work/`,
+  description,
+  mainEntity: {
+    '@type': 'ItemList',
+    itemListElement: projects.map((p, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      url: `${site.url}/work/${p.id}/`,
+      name: p.data.title,
+    })),
+  },
+};
+---
+
+<BaseLayout title={`Work — ${site.name}`} description={description} jsonLd={jsonLd}>
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="eyebrow">The work</p>
+      <h1>Twelve things I built this year.</h1>
+      <p class="lead">
+        Security tooling, a learning platform, automation pipelines, an AI agent, and a few websites.
+        Every project has a case study explaining the problem and the decisions — and most have a live demo
+        you can click through instead of taking my word for it.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0;border-top:0">
+    <div class="wrap">
+      <div class="filters" role="group" aria-label="Filter projects by category">
+        {categories.map((cat, i) => (
+          <button
+            class="filter"
+            type="button"
+            data-filter={cat.toLowerCase()}
+            aria-pressed={i === 0 ? 'true' : 'false'}
+          >
+            {cat}
+          </button>
+        ))}
+      </div>
+
+      <p class="mono" id="work-count" aria-live="polite" style="color:var(--muted);margin-bottom:1.2rem">
+        {projects.length} projects
+      </p>
+
+      <h2 class="visually-hidden">All projects</h2>
+      <div class="work-grid">
+        {projects.map((project, i) => <ProjectCard project={project} eager={i < 2} />)}
+      </div>
+    </div>
+  </section>
+
+  <CTA
+    title="Want to see how this applies to your business?"
+    body="Most of these started as a problem someone was living with. Tell me yours and I'll tell you whether I can help — and what it would cost."
+    primaryLabel="Book a free call"
+  />
+<Fragment slot="body-end">
+<script is:inline>
+  (() => {
+    const buttons = document.querySelectorAll('.filter');
+    const cards = Array.from(document.querySelectorAll('.project-card[data-category]'));
+    const count = document.getElementById('work-count');
+    if (!buttons.length) return;
+
+    buttons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const filter = button.getAttribute('data-filter');
+        buttons.forEach((b) => b.setAttribute('aria-pressed', String(b === button)));
+        let visible = 0;
+        cards.forEach((card) => {
+          const show = filter === 'all' || card.getAttribute('data-category') === filter;
+          card.hidden = !show;
+          if (show) {
+            card.classList.add('is-in');
+            visible += 1;
+          }
+        });
+        if (count) count.textContent = visible + (visible === 1 ? ' project' : ' projects');
+      });
+    });
+  })();
+</script>
+</Fragment>
+</BaseLayout>

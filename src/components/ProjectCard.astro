@@ -1,0 +1,47 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  project: CollectionEntry<'projects'>;
+  eager?: boolean;
+}
+
+const { project, eager = false } = Astro.props;
+const { title, summary, category, year, status, cover, coverAlt, stack } = project.data;
+
+const statusClass =
+  status === 'Live'
+    ? 'status--live'
+    : status === 'In development'
+      ? 'status--dev'
+      : status === 'Archived'
+        ? 'status--archived'
+        : '';
+---
+
+<a class="project-card reveal" href={`/work/${project.id}/`} data-category={category.toLowerCase()}>
+  <div class="cover">
+    <img
+      src={`${cover}-1440.webp`}
+      srcset={`${cover}-720.webp 720w, ${cover}-1440.webp 1440w`}
+      sizes="(max-width: 760px) 100vw, 50vw"
+      width="1440"
+      height="900"
+      alt={coverAlt}
+      loading={eager ? 'eager' : 'lazy'}
+      decoding="async"
+    />
+    <span class={`status ${statusClass}`}>{status}</span>
+  </div>
+  <div class="body">
+    <div class="meta">
+      <span>{category}</span>
+      <span>{year}</span>
+    </div>
+    <h3>{title} <span class="arrow" aria-hidden="true">→</span></h3>
+    <p>{summary}</p>
+    <div class="tags">
+      {stack.slice(0, 4).map((tag) => <span class="tag">{tag}</span>)}
+    </div>
+  </div>
+</a>

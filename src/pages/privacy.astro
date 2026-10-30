@@ -1,0 +1,75 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../data/site';
+
+const description = 'How deltoro.dev handles information: no analytics, no cookies, no trackers, and what happens when you send an inquiry.';
+---
+
+<BaseLayout title={`Privacy — ${site.name}`} description={description} noindex={false}>
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="eyebrow">Privacy</p>
+      <h1>The short version: no trackers.</h1>
+      <p class="lead">
+        This site does not use analytics, advertising pixels, or cookies. Fonts are served from this domain.
+        The only information I receive is what you choose to send me.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0;border-top:0">
+    <div class="wrap prose">
+      <h2>What is collected</h2>
+      <p>
+        <strong>Nothing automatically, by this site.</strong> There is no analytics script, no session recording,
+        no advertising tag, and no cookie set by deltoro.dev. Fonts and images are self-hosted, so loading a page
+        does not call a third-party font or image CDN.
+      </p>
+      <p>
+        The hosting provider (currently GitHub Pages) may keep standard server logs that include IP addresses,
+        user agents, and requested URLs for security and operational purposes. Those logs are controlled by the
+        hosting provider, not by me, and are governed by their privacy policy.
+      </p>
+
+      <h2>When you send an inquiry</h2>
+      <p>
+        If you use the contact form, the details you enter — name, email, business name, service, budget, and message —
+        are sent to me so I can reply. If the form is configured with a form-processing service, that provider
+        processes the submission on my behalf; the current configuration is noted below. If no form service is
+        configured, the form opens your own email application and nothing is transmitted by the website itself.
+      </p>
+      <p>
+        I keep correspondence for as long as needed to handle the inquiry and any resulting engagement, and I do not
+        sell or rent it. You can ask me to delete it at any time.
+      </p>
+
+      <h2>The security checkup</h2>
+      <p>
+        The checkup runs entirely in your browser. Your answers are not transmitted anywhere. If you choose
+        "Email me the results", your email application opens with the results filled in, and nothing is sent until
+        you send it yourself. The score is not stored.
+      </p>
+
+      <h2>Client work</h2>
+      <p>
+        For engagements, I work from accounts you control, with the least access needed to do the job. Working files
+        are kept on an encrypted disk and deleted after handover unless you ask me to retain them. I am happy to sign
+        your NDA and follow your data-handling policy. Specific retention terms are written into each engagement scope.
+      </p>
+
+      <h2>Your choices</h2>
+      <p>
+        You can ask what information I hold about you, request a copy, or ask me to delete it by emailing
+        <a href={`mailto:${site.email}`}>{site.email}</a>. I will respond within a reasonable time and will not
+        make you jump through a form to do it.
+      </p>
+
+      <h2>Changes</h2>
+      <p>
+        If this policy changes, the date below changes with it. There is no mailing list to notify because there is
+        no mailing list.
+      </p>
+      <p class="small">Last updated: October 2026. Current form processing: {site.formEndpoint ? 'external form service (Formspree-compatible)' : 'none — the form opens your email application'}.</p>
+    </div>
+  </section>
+</BaseLayout>

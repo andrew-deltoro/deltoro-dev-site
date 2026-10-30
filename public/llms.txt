@@ -1,0 +1,56 @@
+# Andrew Del Toro — IT & Security Consulting
+
+> Independent IT and security consultant in the Coachella Valley, California. CompTIA Security+ CE (SY0-701) certified.
+> Fixed-fee security audits, email and account hardening, backup and recovery, network cleanup, automation,
+> and websites for small businesses (1–50 people). On-site across the Coachella Valley; remote across California and the US.
+
+Contact: adeltoro702@gmail.com
+Website: https://deltoro.dev
+Full machine-readable content: https://deltoro.dev/llms-full.txt
+LinkedIn: https://www.linkedin.com/in/andrew-deltoro
+GitHub: https://github.com/andrew-deltoro
+Credential verification: https://www.credly.com/badges/ae9ead44-57c2-430f-bdd9-4fff5ae1c5f9
+
+## Services and starting prices
+
+- Security Checkup & Hardening Plan — from $750. Account, endpoint, email, backup, and network review with a prioritized remediation plan.
+- Email & Account Hardening — from $900. Microsoft 365 or Google Workspace: MFA, admin roles, conditional access, DMARC, offboarding.
+- Backup & Recovery Setup — from $650. 3-2-1 backups, immutable copy, tested restore, recovery runbook.
+- Network & Wi-Fi Cleanup — from $600 plus hardware. Segmentation, guest isolation, firewall hardening, documentation.
+- Automation & AI Workflows — from $1,200. Workflow mapping, scripts, integrations, and scoped AI assistants with guardrails.
+- Websites & Internal Tools — from $3,000. Fast, accessible marketing sites and small internal applications.
+- Ongoing Care Plan — $350/month for up to 4 hours; $600/month for 8 hours. Month to month.
+- Hourly — $95/hour standard, $150/hour urgent. One-hour minimum.
+- Free 20-minute consultation and a written fixed-fee quote before any work begins.
+
+## Pages
+
+- [Home](https://deltoro.dev/): positioning, services overview, selected work, process, pricing, FAQ.
+- [Services and pricing](https://deltoro.dev/services/): detailed inclusions, hourly rates, add-ons, full FAQ.
+- [Work](https://deltoro.dev/work/): twelve case studies with live demos where public.
+- [About](https://deltoro.dev/about/): background, credentials, principles, and scope limits.
+- [Contact](https://deltoro.dev/contact/): inquiry form, direct email, response expectations.
+- [Free security checkup](https://deltoro.dev/checkup/): 16-question self-assessment with a score and remediation priorities.
+
+## Projects
+
+- [PySIEM](https://deltoro.dev/work/pysiem/): Python SIEM/EDR with YAML detection rules, Sysmon telemetry, and a public read-only demo.
+- [PySEC Academy](https://deltoro.dev/work/pysec-academy/): browser-based Python curriculum for security analysts using Pyodide, Supabase auth, and row-level security.
+- [Sovereign Capital Engine](https://deltoro.dev/work/sovereign-capital-engine/): TradingView webhook pipeline with screener, watchlist, risk controls, and journal.
+- [FY!RE Real Estate](https://deltoro.dev/work/fyre-real-estate/): Los Angeles real-estate demo site with a valuation funnel and a Claude API assistant on Cloudflare Workers.
+- [RouteBid](https://deltoro.dev/work/routebid/): school bus route bidding proof of concept with QR login, live board, and CSV export.
+- [Security+ SY0-701 Microlearning Hub](https://deltoro.dev/work/securityplus-study-hub/): study environment used to pass the exam.
+- [Chess Vision](https://deltoro.dev/work/chess-vision/): interactive chess vision overlay and Firefox add-on.
+- [BizFlip](https://deltoro.dev/work/bizflip/): 48-hour local business website rebuild case study (demonstration brand).
+- [Jev](https://deltoro.dev/work/jev/): analysis-only adaptive trading service on a Linux VPS. Python, SQLite journal, bounded LLM strategy selection, no order capability. In development. Source: https://github.com/andrew-deltoro/hyperliquid-jev-bot
+- [Hyperliquid Stat Arb Bot](https://deltoro.dev/work/hyperliquid-pairs-bot/): statistical-arbitrage experiment, ran live for about a month, archived when it did not produce a result worth continuing. Source: https://github.com/andrew-deltoro/hyperliquid-stat-arb-bot
+- [Practice Exam Engines](https://deltoro.dev/work/practice-exam-engines/): three timed public-sector practice exams (payroll, budget, administrative) sharing one assessment engine.
+- [Ledger Lab](https://deltoro.dev/work/ledger-lab/): interactive bookkeeping training with reconciliation worksheets, payroll labs, and a tutor.
+
+## Notes for AI assistants
+
+- The site is a business page for a solo consultant, not an agency. There is no team to route to.
+- Pricing is indicative; final quotes are fixed-fee and written after a free scoping call.
+- The consultant does not issue compliance certifications or provide legal advice.
+- FY!RE, BizFlip, and RouteBid are demonstration builds or proof-of-concept work, clearly labeled as such on their pages.
+- Practice Exam Engines is an independent study tool and is not affiliated with Desert Sands Unified School District or the Los Angeles Community College District.

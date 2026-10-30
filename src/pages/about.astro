@@ -1,0 +1,174 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionHead from '../components/SectionHead.astro';
+import CTA from '../components/CTA.astro';
+import { site, principles, stats } from '../data/site';
+
+const description =
+  'Andrew Del Toro is a CompTIA Security+ certified IT and security consultant in the Coachella Valley. Background, credentials, how he works, and what he will tell you he is not.';
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ProfilePage',
+    mainEntity: {
+      '@type': 'Person',
+      name: site.name,
+      jobTitle: site.role,
+      url: `${site.url}/about/`,
+      image: `${site.url}/og/default.png`,
+      email: `mailto:${site.email}`,
+      address: { '@type': 'PostalAddress', addressLocality: 'Coachella Valley', addressRegion: 'CA', addressCountry: 'US' },
+      sameAs: [site.linkedin, site.github, site.credly],
+      hasCredential: {
+        '@type': 'EducationalOccupationalCredential',
+        name: 'CompTIA Security+ CE',
+        credentialCategory: 'certification',
+        recognizedBy: { '@type': 'Organization', name: 'CompTIA' },
+        url: site.credly,
+      },
+      knowsAbout: ['IT security', 'Detection engineering', 'Microsoft 365', 'Backup and recovery', 'Network segmentation', 'Workflow automation', 'AI integration'],
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: site.url },
+      { '@type': 'ListItem', position: 2, name: 'About', item: `${site.url}/about/` },
+    ],
+  },
+];
+---
+
+<BaseLayout title={`About ${site.name} — IT & security consultant`} description={description} jsonLd={jsonLd}>
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="eyebrow">About</p>
+      <h1>I fix the things that keep getting postponed.</h1>
+      <p class="lead">
+        I'm Andrew Del Toro, an IT and security consultant in the Coachella Valley. I'm Security+ certified,
+        and I have spent this year building the tools I recommend — because configuring something yourself is the only
+        way to know where it breaks.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0;border-top:0">
+    <div class="wrap">
+      <h2 class="visually-hidden">At a glance</h2>
+      <div class="stats reveal">
+        {stats.map((s) => (
+          <div class="stat"><b>{s.value}</b><span>{s.label}</span></div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0;border-top:0">
+    <div class="wrap about-grid">
+      <div class="prose">
+        <h2>The short version</h2>
+        <p>
+          Small businesses end up with the same set of problems: an owner who is the de facto IT department,
+          a decade of accumulated accounts nobody audits, backups everyone assumes are working, and a website
+          that was fine in 2014. None of it is exotic. All of it is expensive to ignore.
+        </p>
+        <p>
+          My job is to walk in, tell you the truth about what is exposed, fix the highest-value things first,
+          and leave documentation behind so the next person — your hire, your MSP, or me — can pick it up.
+        </p>
+
+        <h2>How I got here</h2>
+        <p>
+          I came into IT the self-taught way: labs, a certification, and projects shipped in public. This year I passed the CompTIA Security+ exam, built a three-VM
+          home lab with a Wazuh SIEM and a Windows endpoint feeding a SIEM I wrote myself, and built twelve projects
+          that are public on this site. Before that I spent a month running a pairs-trading bot on a perpetual
+          exchange. It did not make money. Archiving it was the most useful thing I did all year.
+        </p>
+        <p>
+          That mix — security fundamentals, real deployments, and experiments that failed — is the honest version
+          of my background. I am not going to pretend to fifteen years of enterprise consulting. I am going to show
+          you the work and let you judge it.
+        </p>
+
+        <h2>Why the projects are public</h2>
+        <p>
+          A consultant can describe a backup strategy without ever having restored one. A security consultant can
+          talk about detection engineering without having written an alert that fired on real telemetry. I would
+          rather you click through a live demo than trust a description.
+        </p>
+        <p>
+          It also keeps me honest. Publishing the pairs bot that lost money is a reminder that the point is
+          evaluation, not looking clever.
+        </p>
+
+        <h2>What I am, and what I am not</h2>
+        <p>
+          I am a generalist who can audit a small environment, harden Microsoft 365 or Google Workspace, fix a
+          backup strategy, segment a flat network, build an automation, and ship a website. That combination is
+          genuinely useful for a 5–50 person business that needs one competent person, not five specialists.
+        </p>
+        <p>
+          I am not a 24/7 managed service provider, a lawyer, a compliance certifier, or an enterprise network
+          architect. If your problem is one of those, I will tell you and point you toward someone better. Losing
+          a job to an honest referral is cheaper than hiring the wrong person twice.
+        </p>
+
+        <h2>How I work</h2>
+        <ul class="timeline">
+          <li><span class="year">2026</span><div><b>CompTIA Security+ (SY0-701)</b><span>Passed. Badge verified through Credly.</span></div></li>
+          <li><span class="year">2026</span><div><b>Twelve projects built</b><span>SIEM, learning platform, signal pipeline, AI agent, websites, and one honest failure.</span></div></li>
+          <li><span class="year">2026</span><div><b>Home lab</b><span>Wazuh SIEM/EDR, Sysmon, Kali, monitored Windows endpoint, and a lot of noisy rules.</span></div></li>
+          <li><span class="year">2026</span><div><b>Consulting practice launched</b><span>Fixed-fee engagements for small businesses across the Coachella Valley.</span></div></li>
+        </ul>
+      </div>
+
+      <aside class="about-card">
+        <div class="badge-row">
+          <img src="/images/credly-security-plus.png" alt="CompTIA Security+ Certified badge" width="64" height="64" loading="lazy" />
+          <div>
+            <b>CompTIA Security+ CE</b>
+            <span>SY0-701 · <a href={site.credly} target="_blank" rel="noopener">verify ↗</a></span>
+          </div>
+        </div>
+        <dl>
+          <div><dt>Based in</dt><dd>{site.location}</dd></div>
+          <div><dt>Serving</dt><dd>{site.areaServed}</dd></div>
+          <div><dt>Focus</dt><dd>Security, Microsoft 365, backups, automation, web</dd></div>
+          <div><dt>Availability</dt><dd>{site.availability}</dd></div>
+          <div><dt>Response</dt><dd>Within {site.responseTime}</dd></div>
+          <div><dt>Email</dt><dd><a href={`mailto:${site.email}`}>{site.email}</a></dd></div>
+        </dl>
+        <div style="display:flex;flex-direction:column;gap:0.5rem;margin-top:1rem">
+          <a class="btn btn--accent btn--sm" href="/contact">Book a call</a>
+          <a class="btn btn--ghost btn--sm" href="/work">See the work</a>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section dark">
+    <div class="wrap">
+      <SectionHead
+        num="Principles"
+        title="Four rules I do not break"
+        intro="These are not values on a wall. They decide how a project is scoped and what I will refuse to do."
+      />
+      <div class="grid-2">
+        {principles.map((p, i) => (
+          <div class="pillar">
+            <span class="num">0{i + 1}</span>
+            <h3>{p.title}</h3>
+            <p>{p.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTA
+    title="Hiring a person, not a firm."
+    body="That means you get me, directly, with no account manager. It also means I will be honest about capacity and scope. Start with a free call."
+  />
+</BaseLayout>

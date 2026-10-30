@@ -1,0 +1,25 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../data/site';
+---
+
+<BaseLayout
+  title={`Thank you — ${site.name}`}
+  description="Your inquiry was sent."
+  noindex={true}
+>
+  <section class="section" style="min-height:60vh;display:flex;align-items:center">
+    <div class="wrap" style="max-width:720px">
+      <p class="eyebrow">Message received</p>
+      <h1>Thanks. I'll be in touch.</h1>
+      <p class="lead" style="margin-top:1.2rem">
+        I read every inquiry myself and reply within one business day. If it is urgent, email
+        <a class="text-link" href={`mailto:${site.email}`}>{site.email}</a> with "URGENT" in the subject.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn--accent" href="/work">Read a case study</a>
+        <a class="btn btn--ghost" href="/">Back to the homepage</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,337 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CTA from '../components/CTA.astro';
+import { site } from '../data/site';
+
+const description =
+  'A free 5-minute IT security checkup for small businesses. Sixteen questions, an honest score, and the specific things to fix first. No email required.';
+
+const groups = [
+  {
+    name: 'Accounts and access',
+    questions: [
+      {
+        q: 'Is multi-factor authentication required on email, banking, and every admin account?',
+        good: 'yes',
+        short: 'MFA is not enforced everywhere',
+        fix: 'Turn on MFA for email first, then for every admin account. Use an authenticator app or a hardware key, not SMS where you can avoid it.',
+      },
+      {
+        q: 'Can you revoke a departing employee’s access the same day, from a written checklist?',
+        good: 'yes',
+        short: 'Offboarding is improvised',
+        fix: 'Write a one-page offboarding checklist: email, file storage, line-of-business apps, shared passwords, and physical access. Test it on the next person who leaves.',
+      },
+      {
+        q: 'Do fewer than three people hold global admin on your main systems?',
+        good: 'yes',
+        short: 'Too many global admins',
+        fix: 'Reduce permanent global admins to two people, give everyone else the least role they need, and use a break-glass account stored offline.',
+      },
+    ],
+  },
+  {
+    name: 'Email',
+    questions: [
+      {
+        q: 'Is DMARC enforced on your domain (p=quarantine or p=reject)?',
+        good: 'yes',
+        short: 'DMARC is missing or only monitoring',
+        fix: 'Publish SPF and DKIM, move DMARC from p=none to quarantine, then to reject once your legitimate mail is passing. Do not skip the monitoring step.',
+      },
+      {
+        q: 'Are mailbox forwarding rules reviewed, and is auto-forwarding to external addresses blocked?',
+        good: 'yes',
+        short: 'Mail forwarding is unmonitored',
+        fix: 'Audit every forwarding rule, block auto-forwarding to external domains, and review again after any suspicious sign-in.',
+      },
+    ],
+  },
+  {
+    name: 'Devices',
+    questions: [
+      {
+        q: 'Are work laptops encrypted and patched automatically?',
+        good: 'yes',
+        short: 'Devices are not encrypted or patched',
+        fix: 'Turn on full-disk encryption (BitLocker or FileVault) and automatic updates. A stolen laptop should be an inconvenience, not a breach.',
+      },
+      {
+        q: 'Is endpoint protection installed, updating, and actually reviewed by a person?',
+        good: 'yes',
+        short: 'Endpoint protection is unmonitored',
+        fix: 'A dashboard nobody opens is not protection. Assign one person to review alerts weekly, and route critical detections to email or a phone.',
+      },
+      {
+        q: 'Do regular staff use admin accounts for everyday work?',
+        good: 'no',
+        short: 'Everyday accounts are admins',
+        fix: 'Separate daily-use accounts from admin accounts. Most ransomware runs with whatever privileges the person who clicked it was using.',
+      },
+    ],
+  },
+  {
+    name: 'Backups',
+    questions: [
+      {
+        q: 'Have you restored a file or system from backup in the last six months?',
+        good: 'yes',
+        short: 'Backups are untested',
+        fix: 'Restore a real file and a real system this month. A backup that has never been tested is a hope, not a control.',
+      },
+      {
+        q: 'Is at least one backup copy offline or immutable, so ransomware cannot encrypt it?',
+        good: 'yes',
+        short: 'Backups are reachable from the network',
+        fix: 'Add an offline or immutable copy — rotated drive, object storage with immutability, or a provider that retains versions ransomware cannot delete.',
+      },
+    ],
+  },
+  {
+    name: 'Network',
+    questions: [
+      {
+        q: 'Is guest Wi-Fi separated from the network your business devices use?',
+        good: 'yes',
+        short: 'Guest and business devices share a network',
+        fix: 'Put guest and personal devices on a separate SSID or VLAN. On most small-business routers this is a checkbox, not a project.',
+      },
+      {
+        q: 'Has the router or firewall admin password been changed from the default?',
+        good: 'yes',
+        short: 'Network gear may still be on defaults',
+        fix: 'Change the admin password now, disable remote administration from the internet, and apply the latest firmware.',
+      },
+      {
+        q: 'Do you know every device and service exposed to the internet?',
+        good: 'yes',
+        short: 'Internet-facing services are not inventoried',
+        fix: 'List every port forward, remote-access tool, and cloud service you have opened. Close what you cannot justify.',
+      },
+    ],
+  },
+  {
+    name: 'Response',
+    questions: [
+      {
+        q: 'Would you notice a compromised account within one business day?',
+        good: 'yes',
+        short: 'Account compromise could go unnoticed',
+        fix: 'Turn on sign-in alerts for impossible travel and new devices. Check the mailbox rules of any account that behaves strangely.',
+      },
+      {
+        q: 'Do you have a written, tested plan for ransomware or total data loss?',
+        good: 'yes',
+        short: 'No incident plan',
+        fix: 'Write a one-page plan: who calls whom, what gets disconnected first, where the backups are, and who talks to customers. Test it as a tabletop exercise.',
+      },
+      {
+        q: 'Is there a documented list of your devices, accounts, and who owns each one?',
+        good: 'yes',
+        short: 'No asset inventory',
+        fix: 'Start a spreadsheet with devices, serial numbers, assigned users, admin accounts, and renewal dates. You cannot secure what you cannot list.',
+      },
+    ],
+  },
+];
+
+const total = groups.reduce((sum, g) => sum + g.questions.length, 0);
+let n = 0;
+const numbered = groups.map((g) => ({
+  ...g,
+  questions: g.questions.map((q) => ({ ...q, n: ++n })),
+}));
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'Free 5-minute IT security checkup',
+  url: `${site.url}/checkup/`,
+  description,
+  isPartOf: { '@type': 'WebSite', name: site.title, url: site.url },
+};
+---
+
+<BaseLayout title={`Free IT security checkup — ${site.name}`} description={description} jsonLd={jsonLd}>
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="eyebrow">Free tool · no email required</p>
+      <h1>How exposed is your business, really?</h1>
+      <p class="lead">
+        {total} questions based on what I actually find in small businesses: accounts that were never cleaned up,
+        backups nobody has restored, a flat network, and email that anyone can spoof. Answer honestly — the score
+        is for you, not for me.
+      </p>
+      <p class="small" style="margin-top:1rem">
+        This is a self-assessment, not a penetration test. It will not find every problem, but it will find the ones
+        that show up in almost every incident.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0;border-top:0">
+    <div class="wrap score-wrap">
+      <div id="checkup">
+        {numbered.map((group, gi) => (
+          <div class="q-group" role="group" aria-labelledby={`group-${gi}`}>
+            <h2 id={`group-${gi}`}>{String(gi + 1).padStart(2, '0')} / {group.name}</h2>
+            {group.questions.map((q) => (
+              <div class="q" data-good={q.good} data-short={q.short} data-fix={q.fix}>
+                <p id={`q-${q.n}`}>{q.q}</p>
+                <div class="choice">
+                  <label>
+                    <input type="radio" name={`q${q.n}`} value="yes" data-question={q.n} aria-labelledby={`q-${q.n}`} />
+                    <span>Yes</span>
+                  </label>
+                  <label>
+                    <input type="radio" name={`q${q.n}`} value="no" data-question={q.n} aria-labelledby={`q-${q.n}`} />
+                    <span>No</span>
+                  </label>
+                </div>
+              </div>
+            ))}
+          </div>
+        ))}
+
+        <div class="score-findings" id="findings" hidden>
+          <h2 style="font-size:1.4rem;margin-bottom:0.4rem">What to fix first</h2>
+          <p class="small" id="findings-intro">Answer the questions to build a priority list.</p>
+          <div id="finding-list"></div>
+        </div>
+      </div>
+
+      <aside class="score-result" aria-live="polite">
+        <p class="mono" style="color:var(--muted);margin-bottom:0.6rem">Your score</p>
+        <div class="number"><span id="score">0</span><small> / {total}</small></div>
+        <p class="band" id="band">Answer all {total} questions</p>
+        <p id="band-copy">Your score updates as you go. The band appears once every question is answered.</p>
+        <div class="progress" aria-hidden="true"><span id="bar"></span></div>
+        <p class="mono" id="answered" style="color:var(--muted);font-size:0.62rem">0 of {total} answered</p>
+
+        <div class="score-actions">
+          <button class="btn btn--accent btn--sm" type="button" id="email-results">Email me the results</button>
+          <button class="btn btn--ghost btn--sm" type="button" id="print-results">Print / PDF</button>
+          <a class="btn btn--ghost btn--sm" href="/contact">Talk it through</a>
+        </div>
+        <p class="small" style="margin-top:1rem;font-size:0.75rem">
+          Nothing is submitted anywhere. The score is calculated in your browser.
+        </p>
+      </aside>
+    </div>
+  </section>
+
+  <CTA
+    title="Want a second pair of eyes?"
+    body="The checkup tells you where you are. A 20-minute call tells you what to do about it — and the written quote tells you what it costs."
+    primaryLabel="Book a free call"
+  />
+<Fragment slot="body-end">
+<script is:inline define:vars={{ totalQuestions: total, contactEmail: site.email }}>
+  (() => {
+    const inputs = Array.from(document.querySelectorAll('#checkup input[type="radio"]'));
+    const questions = Array.from(document.querySelectorAll('#checkup .q'));
+    const scoreEl = document.getElementById('score');
+    const bandEl = document.getElementById('band');
+    const bandCopy = document.getElementById('band-copy');
+    const bar = document.getElementById('bar');
+    const answeredEl = document.getElementById('answered');
+    const findings = document.getElementById('findings');
+    const findingsIntro = document.getElementById('findings-intro');
+    const list = document.getElementById('finding-list');
+
+    const answers = () => {
+      const map = new Map();
+      inputs.forEach((input) => {
+        if (input.checked) map.set(input.dataset.question, input.value);
+      });
+      return map;
+    };
+
+    const bandFor = (score) => {
+      if (score >= 14) {
+        return { label: 'Solid foundation', copy: 'The basics are in place. The remaining gaps are worth closing before they become someone else’s incident.' };
+      }
+      if (score >= 9) {
+        return { label: 'Real gaps, fixable', copy: 'You have the foundation. A focused week of work would move most of these — start at the top of the list.' };
+      }
+      return { label: 'Exposed', copy: 'Several fundamentals are missing. Pick the first two items and do those before anything else. Do not try to fix all of it at once.' };
+    };
+
+    const render = () => {
+      const map = answers();
+      let good = 0;
+      const failures = [];
+
+      questions.forEach((q) => {
+        const n = q.querySelector('input').dataset.question;
+        const answer = map.get(n);
+        const isGood = answer === q.dataset.good;
+        if (isGood) good += 1;
+        if (answer && !isGood) {
+          failures.push({ short: q.dataset.short, fix: q.dataset.fix });
+        }
+      });
+
+      scoreEl.textContent = String(good);
+      bar.style.width = (good / totalQuestions) * 100 + '%';
+      answeredEl.textContent = map.size + ' of ' + totalQuestions + ' answered';
+
+      if (map.size === totalQuestions) {
+        const band = bandFor(good);
+        bandEl.textContent = band.label;
+        bandCopy.textContent = band.copy;
+      } else {
+        bandEl.textContent = 'Answer all ' + totalQuestions + ' questions';
+        bandCopy.textContent = 'Your score updates as you go. The band appears once every question is answered.';
+      }
+
+      findings.hidden = map.size === 0;
+      if (map.size > 0) {
+        findingsIntro.textContent = failures.length
+          ? failures.length + (failures.length === 1 ? ' item needs attention. Start at the top.' : ' items need attention. Start at the top.')
+          : 'Nothing obvious is missing. That is rare — keep the restore test and the offboarding checklist current.';
+        list.innerHTML = failures
+          .map(
+            (f) =>
+              '<div class="finding"><span class="mark" aria-hidden="true">!</span><div><b>' +
+              f.short +
+              '</b><p>' +
+              f.fix +
+              '</p></div></div>'
+          )
+          .join('');
+        if (!failures.length) {
+          list.innerHTML =
+            '<div class="finding is-ok"><span class="mark" aria-hidden="true">✓</span><div><b>All answered items are in place.</b><p>Revisit this quarterly, and after any staff change.</p></div></div>';
+        }
+      }
+    };
+
+    inputs.forEach((input) => input.addEventListener('change', render));
+    render();
+
+    const emailResults = () => {
+      const map = answers();
+      if (!map.size) {
+        bandEl.textContent = 'Answer a few first';
+        return;
+      }
+      let good = 0;
+      const lines = questions.map((q) => {
+        const n = q.querySelector('input').dataset.question;
+        const answer = map.get(n);
+        const isGood = answer === q.dataset.good;
+        if (isGood) good += 1;
+        const text = q.querySelector('p').textContent.trim();
+        return (answer ? (isGood ? '[OK]   ' : '[FIX]  ') : '[SKIP] ') + text;
+      });
+      const body = ['Security checkup results', 'Score: ' + good + ' / ' + totalQuestions, '', ...lines, '', 'Sent from deltoro.dev/checkup'].join('\n');
+      window.location.href = 'mailto:' + contactEmail + '?subject=' + encodeURIComponent('Security checkup results') + '&body=' + encodeURIComponent(body);
+    };
+
+    document.getElementById('email-results')?.addEventListener('click', emailResults);
+    document.getElementById('print-results')?.addEventListener('click', () => window.print());
+  })();
+</script>
+</Fragment>
+</BaseLayout>
