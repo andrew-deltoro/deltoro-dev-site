@@ -172,13 +172,14 @@ const jsonLd = {
     </div>
   </section>
 <Fragment slot="body-end">
-<script is:inline>
-  (() => {
-    const form = document.getElementById('contact-form');
-    if (!form) return;
+<script>
+  import { buildContactMailto } from '../lib/contact-mailto';
+
+  const form = document.getElementById('contact-form');
+  if (form) {
     const status = document.getElementById('form-status');
     const endpoint = form.dataset.endpoint;
-    const email = form.dataset.email;
+    const email = form.dataset.email || '';
 
     // Preselect a service from ?service=...
     const params = new URLSearchParams(window.location.search);
@@ -216,22 +217,9 @@ const jsonLd = {
         return;
       }
 
-      const subject = `Project inquiry — ${company || name}`;
-      const body = [
-        `Name: ${name}`,
-        `Email: ${replyTo}`,
-        company ? `Business: ${company}` : '',
-        `Service: ${service}`,
-        `Budget: ${budget}`,
-        '',
-        message,
-      ]
-        .filter(Boolean)
-        .join('\n');
-
       if (!endpoint) {
         setStatus('Opening your email app with the message filled in…');
-        window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        window.location.href = buildContactMailto({ name, email: replyTo, company, service, budget, message }, email);
         return;
       }
 
@@ -252,7 +240,7 @@ const jsonLd = {
         if (button) button.disabled = false;
       }
     });
-  })();
+  }
 </script>
 </Fragment>
 </BaseLayout>

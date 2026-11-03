@@ -42,6 +42,12 @@ So both the NFC tap and the printed QR now land on this site. The QR pixels did 
 
 Open https://app.v1ce.co → Pages → Link → Redirect visitors and confirm the toggle is on and the URL is https://deltoro.dev/card. If V1CE changes plans or removes the setting, use the QR label below or ask support to re-point the card.
 
+## If the tap opens the homepage instead of /card
+
+The V1CE URL is verified to redirect to https://deltoro.dev/card. If your tap opens the homepage, the chip itself is encoded with https://deltoro.dev (or www.deltoro.dev), not with the V1CE URL. The V1CE redirect cannot change a chip that never touches V1CE.
+
+Read the tag with NFC Tools and look at the URL/URI record. If it says https://deltoro.dev, rewrite it to https://deltoro.dev/card. If the tag is locked, use a small NTAG215 sticker programmed to /card and place it on the card; keep the embedded chip as-is.
+
 ## Optional: rewrite the NFC chip anyway
 
 Only do this if you want the tap to bypass V1CE entirely. The redirect already works, so this is optional.
