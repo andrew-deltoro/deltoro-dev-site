@@ -4,7 +4,7 @@
 > Fixed-fee security audits, email and account hardening, backup and recovery, network cleanup, automation,
 > and websites for small businesses (1–50 people). On-site in Palm Springs, Palm Desert, La Quinta, and Indio; remote across California and the US.
 
-Contact: adeltoro702@gmail.com
+Contact: contact@deltoro.dev
 Website: https://deltoro.dev
 Full machine-readable content: https://deltoro.dev/llms-full.txt
 LinkedIn: https://www.linkedin.com/in/andrew-deltoro

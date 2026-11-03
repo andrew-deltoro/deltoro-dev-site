@@ -54,19 +54,18 @@ The domain already points at GitHub Pages, so do not change DNS.
 If the workflow fails with a Pages error, check that **Settings → Pages → Source** is **GitHub Actions**,
 not "Deploy from a branch." The old Hugo workflow will be replaced by the new one when you force-push.
 
-## 2. Email on the domain (15 minutes)
+## 2. Email on the domain (done)
 
-DNS is on Cloudflare, so this is straightforward. You can only receive with this setup; replies will still come from Gmail unless you add a paid mailbox.
+Cloudflare Email Routing is enabled. `contact@deltoro.dev` and the catch-all forward to Gmail. This is inbound-only; replies come from Gmail unless you add a paid mailbox.
 
-- [ ] Cloudflare dashboard → deltoro.dev → **Email → Email Routing → Enable**.
-- [ ] Add custom address **hello@deltoro.dev** → destination **adeltoro702@gmail.com**.
-- [ ] Open the verification email in Gmail and click the link.
-- [ ] Send a test from a different account to hello@deltoro.dev and confirm it arrives.
-- [ ] Edit src/data/site.ts: change the email value to hello@deltoro.dev.
-- [ ] Update the address in public/llms.txt and public/.well-known/security.txt.
-- [ ] Run npm run build, commit, and push.
+- [x] Cloudflare → deltoro.dev → **Email → Email Routing → Enable**.
+- [x] Add custom address **contact@deltoro.dev** → destination **adeltoro702@gmail.com**.
+- [x] Verify the destination inbox.
+- [x] Send a test from a different account to contact@deltoro.dev.
+- [x] Update the site email in src/data/site.ts, public/llms.txt, and public/.well-known/security.txt.
+- [x] Rebuild, commit, and deploy.
 
-**If you want to send as hello@deltoro.dev:** sign up for Zoho Mail Lite or Google Workspace, add the domain, and replace the Cloudflare MX records with the provider's. Keep the existing SPF and DKIM records and do not run two mail providers at once.
+**If you want to send as contact@deltoro.dev:** sign up for Zoho Mail Lite or Google Workspace, add the domain, and replace the Cloudflare MX records with the provider's. Keep the existing SPF and DKIM records and do not run two mail providers at once.
 
 ## 3. Contact form (15 minutes)
 

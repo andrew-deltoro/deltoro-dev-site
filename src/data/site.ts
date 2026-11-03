@@ -6,7 +6,7 @@ export const site = {
   description:
     'Security+ certified IT consultant in the Coachella Valley. I harden small-business security, fix fragile infrastructure, automate manual work, and build the tools that hold it together.',
   url: 'https://deltoro.dev',
-  email: 'adeltoro702@gmail.com',
+  email: 'contact@deltoro.dev',
   phone: '',
   location: 'Coachella Valley, California',
   areaServed: 'Palm Springs, Palm Desert, La Quinta, Indio & remote across California',

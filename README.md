@@ -41,10 +41,10 @@ Node 22 or newer.
 
 ### Contact details
 
-Everything reads from `src/lib` — actually `src/data/site.ts`. The important fields:
+Everything reads from `src/data/site.ts`. The important fields:
 
 ```ts
-email: 'adeltoro702@gmail.com',   // change to hello@deltoro.dev when the mailbox is live
+email: 'contact@deltoro.dev',   // forwards to Gmail via Cloudflare Email Routing
 phone: '',                        // optional; the UI hides it when empty
 bookingUrl: '',                   // e.g. 'https://cal.com/andrew-deltoro/intro-call'
 formEndpoint: '',                 // e.g. 'https://formspree.io/f/xxxxxxxx'
@@ -184,20 +184,17 @@ headers and Netlify's CDN, but you must change DNS and wait for propagation.
 
 ## After deploy
 
-### 1. Email on the domain
+### 1. Email on the domain (configured)
 
-DNS is already on Cloudflare, so this takes about ten minutes:
+Cloudflare Email Routing is already enabled on deltoro.dev:
 
-1. Cloudflare dashboard → **deltoro.dev → Email → Email Routing → Enable**.
-2. Add a custom address: `hello@deltoro.dev` → destination `adeltoro702@gmail.com`.
-3. Verify the destination inbox, then send a test from an outside account.
-4. Update `email` in `src/data/site.ts` and the address in `public/llms.txt` and
-   `public/.well-known/security.txt`, then rebuild.
+- `contact@deltoro.dev` and the catch-all address forward to `adeltoro702@gmail.com`.
+- MX and SPF records are live.
 
-Cloudflare Email Routing is **receive-only**. Replies will come from Gmail unless you add a real
-mailbox. For sending as `hello@deltoro.dev`, use Google Workspace (~$7/user/month) or Zoho Mail
-Lite (~$1/user/month) and point MX at that provider instead. The gmail address is the safe default
-until then, because a displayed address that cannot receive mail loses leads.
+If it ever stops, check **Cloudflare → deltoro.dev → Email → Email Routing** and the destination
+verification. Cloudflare forwarding is **receive-only**; replies come from Gmail unless you add a
+real mailbox. For sending as `contact@deltoro.dev`, use Zoho Mail Lite (~$1–$2/user/month) or
+Google Workspace (~$7/user/month).
 
 ### 2. Contact form
 
