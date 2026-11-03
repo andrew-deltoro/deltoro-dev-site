@@ -211,8 +211,8 @@ export const services: Service[] = [
     id: 'web-tools',
     name: 'Websites & Internal Tools',
     kicker: 'The public site and the tool behind the counter.',
-    price: 'from $1,500',
-    priceNote: 'presence site $1,500 · local business site $2,500 · professional build from $4,500',
+    price: '$200',
+    priceNote: 'one-time · three pages · $100/month for the first 30 days after launch',
     timeline: '2–6 weeks',
     bestFor: 'Businesses with a slow site, a broken intake process, or a spreadsheet doing a database’s job.',
     summary:
@@ -259,7 +259,7 @@ export const hourly = {
 
 export const addons = [
   { name: 'Google Business Profile setup', price: '$650', note: 'Claim, categories, hours, services, photos, Q&A, and a review-request routine. $200/month to keep it current.' },
-  { name: 'Booking or ordering integration', price: '+$400', note: 'Online scheduling or ordering wired into the new site and tested end to end.' },
+  { name: 'Booking or ordering integration', price: '+$50', note: 'Online scheduling or ordering wired into the new site and tested end to end.' },
   { name: 'Phishing simulation & debrief', price: '$250', note: 'One campaign, results walkthrough, and a short training deck.' },
   { name: 'Security awareness session', price: '$300', note: '45 minutes, live or recorded, tailored to your team.' },
   { name: 'Written policy pack', price: '$450', note: 'Acceptable use, access control, incident response, and offboarding.' },
