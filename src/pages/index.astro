@@ -88,7 +88,7 @@ const jsonLd = [
         <h1>Your <span class="mark">IT</span> team.</h1>
         <p class="lead">
           I help small businesses fix the IT problems that keep getting postponed: exposed accounts,
-          untested backups, messy networks, and work a person is still doing by hand.
+          untested backups, a website AI search engines cannot read, and work a person is still doing by hand.
           <strong>Security+ certified. Fixed-fee quotes. No long contracts.</strong>
         </p>
         <div class="hero-actions">
@@ -140,6 +140,25 @@ const jsonLd = [
       ))}
     </div>
   </div>
+
+  <section class="doors-section" aria-label="Two ways I help">
+    <div class="wrap">
+      <div class="doors">
+        <a class="door" href="/services#ai-search-foundation">
+          <span class="door-k">Get found</span>
+          <h2>Website, booking, and AI search</h2>
+          <p>A site a phone can read, a Google profile that answers “near me”, and the structured data an AI assistant needs before it will name you.</p>
+          <span class="door-link">Visibility offers →</span>
+        </a>
+        <a class="door" href="/services#security-audit">
+          <span class="door-k">Get secured</span>
+          <h2>Accounts, backups, and network</h2>
+          <p>The checkup that finds what is exposed before it becomes a bad month. Fixed fee, plain English, and a plan you own.</p>
+          <span class="door-link">Security offers →</span>
+        </a>
+      </div>
+    </div>
+  </section>
 
   <section class="section" id="services">
     <div class="wrap">
@@ -318,3 +337,66 @@ const jsonLd = [
 
   <CTA />
 </BaseLayout>
+
+<style>
+  .doors-section {
+    border-bottom: 1px solid var(--line);
+  }
+  .doors {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--line);
+    border-left: 1px solid var(--line);
+    border-right: 1px solid var(--line);
+  }
+  .door {
+    display: block;
+    background: var(--surface);
+    padding: 26px 30px 24px;
+    text-decoration: none;
+    color: inherit;
+    transition: background 0.15s ease;
+  }
+  .door:hover,
+  .door:focus-visible {
+    background: var(--surface-2);
+  }
+  .door-k {
+    display: block;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent-ink);
+    margin: 0 0 9px;
+  }
+  .door h2 {
+    font-size: clamp(18px, 2vw, 22px);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin: 0 0 8px;
+  }
+  .door p {
+    margin: 0 0 14px;
+    color: var(--muted);
+    font-size: 14.5px;
+    line-height: 1.5;
+    max-width: 48ch;
+  }
+  .door-link {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent-ink);
+  }
+  @media (max-width: 760px) {
+    .doors {
+      grid-template-columns: 1fr;
+    }
+    .door {
+      padding: 22px var(--gutter);
+    }
+  }
+</style>

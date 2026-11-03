@@ -5,3 +5,17 @@ dist/
 .env.*
 .DS_Store
 *.log
+
+# research scratch (raw data, reproducible)
+/.research/osm/
+/.research/chrome/
+
+# internal business material — never publish (public repo)
+/.research/
+/docs/call-pack/
+/docs/teasers/
+/docs/one-pagers/
+/docs/target-list.csv
+/docs/coachella-valley-target-list.html
+/docs/coachella-valley-target-list.pdf
+*.~lock.*#
