@@ -175,7 +175,7 @@ const jsonLd = {
 <script>
   import { buildContactMailto } from '../lib/contact-mailto';
 
-  const form = document.getElementById('contact-form');
+  const form = document.getElementById('contact-form') as HTMLFormElement | null;
   if (form) {
     const status = document.getElementById('form-status');
     const endpoint = form.dataset.endpoint;
@@ -185,14 +185,16 @@ const jsonLd = {
     const params = new URLSearchParams(window.location.search);
     const requested = params.get('service');
     if (requested) {
-      const select = document.getElementById('service');
+      const select = document.getElementById('service') as HTMLSelectElement | null;
       if (select) {
-        const match = Array.from(select.options).find((o) => o.value.toLowerCase() === requested.toLowerCase());
+        const match = Array.from(select.options).find(
+          (option) => option.value.toLowerCase() === requested.toLowerCase(),
+        );
         if (match) select.value = match.value;
       }
     }
 
-    const setStatus = (message, state) => {
+    const setStatus = (message: string, state?: 'error' | 'success') => {
       if (!status) return;
       status.textContent = message;
       if (state) status.dataset.state = state;
@@ -223,7 +225,7 @@ const jsonLd = {
         return;
       }
 
-      const button = form.querySelector('button[type="submit"]');
+      const button = form.querySelector('button[type="submit"]') as HTMLButtonElement | null;
       if (button) button.disabled = true;
       setStatus('Sending…');
 

@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import SectionHead from '../components/SectionHead.astro';
 import FAQ from '../components/FAQ.astro';
 import CTA from '../components/CTA.astro';
-import { site, services, hourly, addons, faqs, process } from '../data/site';
+import { site, services, addons, faqs, process } from '../data/site';
 
 const description =
   'IT and security services for small businesses in the Coachella Valley: security audits from $750, email and account hardening from $900, backup and network work, automation, websites, and a $350/month care plan.';
@@ -105,7 +105,7 @@ const jsonLd = [
       <SectionHead
         num="Pricing"
         title="How the money works"
-        intro="No hourly surprises, no minimum monthly spend you cannot cancel, and no invoice for a conversation."
+        intro="One price in public. No hourly billing, no minimum monthly spend you cannot cancel, and no invoice for a conversation."
       />
       <div class="grid-3 reveal">
         <div class="pillar">
@@ -137,26 +137,6 @@ const jsonLd = [
       <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.1rem;margin-top:1.6rem" class="price-pair">
         <div class="price-block">
           <div class="head">
-            <h3>Hourly work</h3>
-            <span class="amount">{hourly.standard} standard</span>
-          </div>
-          <div class="addon-row">
-            <b>Small jobs & follow-ups</b>
-            <span>{hourly.standard}</span>
-            <p>For work too small to justify a fixed-fee scoping exercise.</p>
-          </div>
-          <div class="addon-row">
-            <b>Urgent / after-hours</b>
-            <span>{hourly.urgent}</span>
-            <p>Active incidents, evenings, and weekends. Two-hour minimum for incident response.</p>
-          </div>
-          <div class="addon-row">
-            <p>{hourly.note}</p>
-          </div>
-        </div>
-
-        <div class="price-block">
-          <div class="head">
             <h3>Add-ons</h3>
             <span class="amount">quoted with the project</span>
           </div>
@@ -182,7 +162,7 @@ const jsonLd = [
       <SectionHead
         num="Process"
         title="What actually happens"
-        intro="The same four steps for a $750 checkup or a $10,000 build. The only difference is how long each one takes."
+        intro="The same four steps every time. The only difference is how long each one takes."
       />
       <div class="steps">
         {process.map((step) => (
