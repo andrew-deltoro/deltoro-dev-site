@@ -1,6 +1,6 @@
 import type { APIRoute } from 'astro';
 import { getCollection } from 'astro:content';
-import { site, services, faqs, process, principles, hourly, addons } from '../data/site';
+import { site, services, faqs, process, principles } from '../data/site';
 
 export const GET: APIRoute = async () => {
   const projects = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);
@@ -36,16 +36,11 @@ export const GET: APIRoute = async () => {
   }
 
   lines.push(
-    '### Hourly',
+    'Other IT and security work is quoted after a short call. Domain and hosting are registered in the owner\'s name and paid directly to the provider.',
     '',
-    `Standard: ${hourly.standard}. Urgent: ${hourly.urgent}. ${hourly.note}`,
-    '',
-    '### Add-ons',
+    '## How an engagement runs',
     ''
   );
-  for (const a of addons) lines.push(`- ${a.name} — ${a.price}. ${a.note}`);
-
-  lines.push('', '## How an engagement runs', '');
   for (const step of process) lines.push(`${step.n}. ${step.title}. ${step.body}`);
 
   lines.push('', '## Principles', '');

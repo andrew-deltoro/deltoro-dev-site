@@ -3,16 +3,16 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import SectionHead from '../components/SectionHead.astro';
 import FAQ from '../components/FAQ.astro';
 import CTA from '../components/CTA.astro';
-import { site, services, addons, faqs, process } from '../data/site';
+import { site, services, faqs, process } from '../data/site';
 
 const description =
-  'IT and security services for small businesses in the Coachella Valley: security audits from $750, email and account hardening from $900, backup and network work, automation, websites, and a $350/month care plan.';
+  'Website setup for small businesses in the Coachella Valley: a flat $200 for a three-page site, built and handed over. Domain and hosting stay in your name. Other IT and security work is quoted separately.';
 
 const jsonLd = [
   {
     '@context': 'https://schema.org',
     '@type': 'Service',
-    serviceType: 'IT and security consulting',
+    serviceType: 'Website setup',
     provider: { '@type': 'ProfessionalService', name: site.name, url: site.url },
     areaServed: 'Coachella Valley and remote within California and the United States',
     description,
@@ -128,31 +128,14 @@ const jsonLd = [
           <span class="num">03 / THE INVOICE</span>
           <h3>Half up front, half on delivery.</h3>
           <p>
-            50% to schedule the work, the balance when you have the deliverable and the handover. Care plans bill monthly,
-            cancel with 30 days' notice.
+            50% to schedule the work, the balance when you have the deliverable and the handover. No retainer and no monthly fee.
           </p>
         </div>
       </div>
 
-      <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.1rem;margin-top:1.6rem" class="price-pair">
-        <div class="price-block">
-          <div class="head">
-            <h3>Add-ons</h3>
-            <span class="amount">quoted with the project</span>
-          </div>
-          {addons.map((addon) => (
-            <div class="addon-row">
-              <b>{addon.name}</b>
-              <span>{addon.price}</span>
-              <p>{addon.note}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-
       <p class="small" style="margin-top:1.2rem">
-        Prices are in USD and exclude applicable taxes and third-party licensing (backup software, hardware, domain fees),
-        which are passed through at cost with your approval. No affiliate markup.
+        The $200 covers the website setup. Domain and hosting are registered in your name and paid directly to the provider.
+        Other IT and security work is quoted separately after a short call.
       </p>
     </div>
   </section>

@@ -16,9 +16,8 @@ const featured = projects
 const homeFaqs = faqs.slice(0, 5);
 
 const priceHighlights = [
-  { name: 'Security Checkup & Hardening Plan', price: 'from $750', note: 'The full picture, prioritized.', href: '/services#security-audit' },
-  { name: 'Email & Account Hardening', price: 'from $900', note: 'The login layer attackers use.', href: '/services#email-accounts' },
-  { name: 'Ongoing Care Plan', price: '$350/mo', note: 'Keep the fixes fixed.', href: '/services#care-plan' },
+  { name: 'Website setup', price: '$200', note: 'Three pages, built and handed over.', href: '/services#web-tools' },
+  { name: 'Other IT & security work', price: 'Quoted', note: 'Scope and fixed price after a call.', href: '/contact' },
 ];
 
 const jsonLd = [
@@ -285,7 +284,7 @@ const jsonLd = [
       <SectionHead
         num="06"
         title="What it costs"
-        intro="Fixed fees, quoted after a free call. The numbers below are typical starting points, not bait-and-switch ranges."
+        intro="One public price. A complete website setup is $200 flat, handed over to you. Other work is quoted after a short call."
       />
       <div class="grid-3 reveal">
         {priceHighlights.map((item) => (
@@ -298,8 +297,8 @@ const jsonLd = [
         ))}
       </div>
       <p class="small" style="margin-top:1.4rem">
-        Small jobs can be hourly at $95/hr. Everything is itemized in a written quote before work starts.
-        <a class="text-link" href="/services">Full service list and pricing</a>.
+        The $200 covers the three-page setup. Domain and hosting stay in your name and are paid directly to the provider.
+        <a class="text-link" href="/services">See what is included</a>.
       </p>
     </div>
   </section>

@@ -7,7 +7,7 @@ export const site = {
     'Security+ certified IT consultant in the Coachella Valley. I harden small-business security, fix fragile infrastructure, automate manual work, and build the tools that hold it together.',
   url: 'https://deltoro.dev',
   email: 'contact@deltoro.dev',
-  phone: '',
+  phone: '(442) 400-4900',
   location: 'Coachella Valley, California',
   areaServed: 'Palm Springs, Palm Desert, La Quinta, Indio & remote across California',
   timezone: 'America/Los_Angeles',
@@ -42,7 +42,7 @@ export const services: Service[] = [
     name: 'Websites',
     kicker: 'A site that works on the phone your customers are actually holding.',
     price: '$200',
-    priceNote: 'one-time · three pages · $100/month for the first 30 days after launch',
+    priceNote: 'one-time · three pages · handover included',
     timeline: '3–7 days',
     bestFor: 'A business with no site, a broken site, or one nobody has touched in ten years.',
     summary:
@@ -53,21 +53,10 @@ export const services: Service[] = [
       'Your hours, address and menu as real text, with structured data',
       'A contact form that reaches your inbox, tested end to end',
       'Handover: domain, hosting, files and a one-page runbook',
-      'The first 30 days of fixes and small updates',
     ],
     deliverable: 'A deployed site you own, with everything handed over.',
     icon: 'code',
   },
-];
-
-export const hourly = {
-  standard: '$95/hr',
-  urgent: '$150/hr',
-  note: 'One-hour minimum. On-site work across the Coachella Valley; travel beyond the valley quoted separately. Hourly is available for small jobs where a fixed fee would be silly.',
-};
-
-export const addons = [
-  { name: 'Booking or ordering integration', price: '+$50', note: 'Online scheduling or ordering wired into the site and tested end to end.' },
 ];
 
 export const process = [
@@ -119,11 +108,11 @@ export const faqs = [
   },
   {
     q: 'We do not have an IT team. Can you still help?',
-    a: 'No IT team? No worries. Think of me as your IT team to perform the improvements you are looking for. I handle the work, document what changed, and leave you with something you can hand to the next person. If you want ongoing coverage afterward, the care plan exists for exactly that.',
+    a: 'No IT team? No worries. I handle the work, document what changed, and leave you with something you can hand to the next person. If you need ongoing help afterward, we can scope that separately.',
   },
   {
     q: 'How does pricing actually work?',
-    a: 'Most work is a fixed fee quoted after a free scoping call. You approve the scope and price in writing before I start. If I find something materially different once I am inside, I stop and re-quote rather than quietly running up hours. Small jobs can be hourly at $95/hr.',
+    a: 'A website setup is a flat $200: three pages, built and handed over to you. You own the domain, hosting, and files. Other IT or security work is quoted after a short call; there is no public hourly rate.',
   },
   {
     q: 'How quickly can you start?',
@@ -146,8 +135,8 @@ export const faqs = [
     a: 'I work from your accounts with the least access needed, keep working files on an encrypted disk, and delete engagement data after handover unless you ask me to retain it. I am happy to sign your NDA and follow your data-handling policy.',
   },
   {
-    q: 'Can you build us a website too?',
-    a: 'Yes. I build fast, accessible marketing sites and small internal tools, and I have shipped enough of them to know where the traps are. It is the same discipline as the security work: fewer moving parts, documented, and owned by you.',
+    q: 'How much is a website?',
+    a: 'A complete three-page website setup is $200 flat, handed over to you. That covers the home, services or menu, and contact pages. Domain and hosting are registered in your name and paid directly by you.',
   },
   {
     q: 'What if we need something you do not do?',
