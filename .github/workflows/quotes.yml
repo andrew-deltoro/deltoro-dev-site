@@ -1,0 +1,42 @@
+name: quotes
+
+# Keeps public/data/quotes.json fresh so the TV only ever makes one
+# CORS-friendly request to deltoro.dev instead of calling Yahoo directly
+# (Yahoo sends no CORS headers, so a browser cannot read it).
+
+on:
+  schedule:
+    - cron: '*/10 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: quotes
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Fetch quotes
+        run: node scripts/quotes-fetch.mjs
+
+      - name: Commit if changed
+        run: |
+          git config user.name "quotes-bot"
+          git config user.email "quotes-bot@deltoro.dev"
+          git add public/data/quotes.json
+          if git diff --staged --quiet; then
+            echo "no change"
+          else
+            git commit -m "quotes: refresh $(date -u +%H:%MZ)"
+            git push
+          fi
