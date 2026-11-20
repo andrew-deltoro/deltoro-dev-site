@@ -1,4 +1,4 @@
-﻿// scripts/quotes-fetch.mjs
+// scripts/quotes-fetch.mjs
 //
 // Runs server-side (GitHub Action or anywhere with Node 18+), fetches the
 // quote universe, ranks by 24h dollar volume and writes a small static JSON
@@ -12,9 +12,11 @@ import { dirname } from 'node:path';
 
 const STOCKS = [
   'NVDA', 'TSLA', 'AAPL', 'AMD', 'PLTR', 'SPY', 'QQQ', 'MSFT', 'AMZN',
-  'META', 'GOOGL', 'AVGO', 'INTC', 'SOFI', 'RIVN', 'COIN', 'MARA', 'WIX'
+  'META', 'GOOGL', 'AVGO', 'INTC', 'SOFI', 'RIVN', 'COIN', 'MARA', 'WIX',
+  '^VIX'
 ];
-const PINNED = 'WIX';
+// Always shown, pinned to the end of the list regardless of rank.
+const PINNED = ['WIX', 'VIX'];
 const OUT = 'public/data/quotes.json';
 const TOP_N = 10;
 const STABLES = new Set(['USDT', 'USDC', 'DAI', 'FDUSD', 'TUSD', 'BUSD', 'USDD', 'PYUSD', 'USDE', 'XUSD']);
@@ -31,7 +33,7 @@ async function json(url) {
 async function stock(sym) {
   try {
     const j = await json(
-      `https://query1.finance.yahoo.com/v8/finance/chart/${sym}` +
+      `https://query1.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(sym)}` +
       '?interval=5m&range=1d&includePrePost=true'
     );
     const r = j?.chart?.result?.[0];
@@ -44,9 +46,10 @@ async function stock(sym) {
     const shown = typeof meta.postMarketPrice === 'number' && meta.postMarketPrice > 0
       ? meta.postMarketPrice
       : price;
-    if (!price || !vol || !prev) return null;
+    // Indices such as ^VIX report zero volume; price and prev are what matter.
+    if (!price || !prev) return null;
     return {
-      sym,
+      sym: sym.replace(/^\^/, ''),
       price: shown,
       change: ((shown - prev) / prev) * 100,
       dollarVol: price * vol,
@@ -82,14 +85,16 @@ const stocks = results.slice(0, STOCKS.length).filter(Boolean);
 const coins = results[results.length - 1] ?? [];
 
 const all = [...stocks, ...coins].sort((a, b) => b.dollarVol - a.dollarVol);
-const top = all.slice(0, TOP_N);
 
-if (!top.some((t) => t.sym === PINNED)) {
-  const wix = all.find((t) => t.sym === PINNED);
-  if (wix) {
-    top[top.length - 1] = wix;
-  }
-}
+// Pinned symbols always appear; they occupy the last slots, so the ranking
+// still drives the interesting part of the list.
+const pinned = PINNED
+  .map((p) => all.find((t) => t.sym === p))
+  .filter(Boolean);
+const rest = all
+  .filter((t) => !PINNED.includes(t.sym))
+  .slice(0, Math.max(0, TOP_N - pinned.length));
+const top = [...rest, ...pinned];
 
 mkdirSync(dirname(OUT), { recursive: true });
 writeFileSync(
