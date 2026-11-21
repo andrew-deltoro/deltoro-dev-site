@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-21T09:25:23.796Z",
+  "generatedAt": "2026-11-21T11:44:56.708Z",
   "source": {
     "stocks": "yahoo",
     "crypto": "coingecko"
@@ -22,9 +22,9 @@
     },
     {
       "sym": "BTC",
-      "price": 57870,
-      "change": -6.28415,
-      "dollarVol": 69539824431,
+      "price": 58163,
+      "change": -5.79971,
+      "dollarVol": 70254964660,
       "crypto": true
     },
     {
@@ -35,18 +35,18 @@
       "crypto": false
     },
     {
+      "sym": "ETH",
+      "price": 1652.81,
+      "change": -5.46919,
+      "dollarVol": 27258484689,
+      "crypto": true
+    },
+    {
       "sym": "AMD",
       "price": 424.39,
       "change": -13.24638688444163,
       "dollarVol": 26911447114.129997,
       "crypto": false
-    },
-    {
-      "sym": "ETH",
-      "price": 1633.87,
-      "change": -6.58721,
-      "dollarVol": 25876118024,
-      "crypto": true
     },
     {
       "sym": "AAPL",
