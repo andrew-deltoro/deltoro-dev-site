@@ -1,11 +1,18 @@
 {
-  "generatedAt": "2026-11-21T20:11:04.179Z",
+  "generatedAt": "2026-11-21T20:21:04.567Z",
   "source": {
     "stocks": "yahoo",
     "crypto": "coingecko"
   },
   "count": 10,
   "items": [
+    {
+      "sym": "QQQ",
+      "price": 608.45,
+      "change": -5.672516433089409,
+      "dollarVol": 126132904942.25002,
+      "crypto": false
+    },
     {
       "sym": "SPY",
       "price": 689.81,
@@ -14,24 +21,17 @@
       "crypto": false
     },
     {
-      "sym": "QQQ",
-      "price": 608.45,
-      "change": -5.672516433089409,
-      "dollarVol": 73848088206.45001,
-      "crypto": false
-    },
-    {
       "sym": "NVDA",
       "price": 125.53,
       "change": -14.008768324427997,
-      "dollarVol": 69516722310.31,
+      "dollarVol": 69516666826.05,
       "crypto": false
     },
     {
       "sym": "BTC",
-      "price": 60309,
-      "change": 3.22158,
-      "dollarVol": 60557944177,
+      "price": 60218,
+      "change": 3.11709,
+      "dollarVol": 60330521022,
       "crypto": true
     },
     {
@@ -43,9 +43,9 @@
     },
     {
       "sym": "ETH",
-      "price": 1684.85,
-      "change": 4.89587,
-      "dollarVol": 20933504702,
+      "price": 1682.97,
+      "change": 4.74025,
+      "dollarVol": 20833714120,
       "crypto": true
     },
     {
@@ -56,10 +56,10 @@
       "crypto": false
     },
     {
-      "sym": "MSFT",
-      "price": 484.52,
-      "change": -2.7654023680513804,
-      "dollarVol": 15258000423.72,
+      "sym": "GOOGL",
+      "price": 265.29,
+      "change": -2.7030000733514283,
+      "dollarVol": 17005037533.740002,
       "crypto": false
     },
     {
