@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TV photos — upload</title>
+<style>
+  :root { color-scheme: dark; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; min-height: 100vh; padding: 32px 20px 64px;
+    background: #0b0e13; color: #e8eef7;
+    font: 16px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif;
+    display: flex; flex-direction: column; align-items: center;
+  }
+  main { width: 100%; max-width: 640px; }
+  h1 { font-size: 22px; margin: 0 0 6px; font-weight: 650; }
+  p.sub { margin: 0 0 26px; color: #8b98ab; font-size: 14px; }
+  .card {
+    background: #121821; border: 1px solid #202b3a; border-radius: 16px;
+    padding: 20px; margin-bottom: 18px;
+  }
+  label { display: block; font-size: 12px; letter-spacing: .1em;
+          text-transform: uppercase; color: #7f8da1; margin-bottom: 8px; }
+  input[type=password] {
+    width: 100%; padding: 11px 12px; border-radius: 10px;
+    border: 1px solid #2a3648; background: #0d131b; color: #e8eef7; font-size: 15px;
+  }
+  .row { display: flex; gap: 10px; align-items: center; margin-top: 12px; flex-wrap: wrap; }
+  button {
+    padding: 10px 16px; border-radius: 10px; border: 1px solid #2a3648;
+    background: #1a2331; color: #e8eef7; font-size: 15px; cursor: pointer;
+  }
+  button.primary { background: #2b6cf6; border-color: #2b6cf6; color: #fff; font-weight: 600; }
+  button:disabled { opacity: .5; cursor: default; }
+  #drop {
+    border: 1.5px dashed #2f3d52; border-radius: 14px; padding: 26px 18px;
+    text-align: center; color: #8b98ab; font-size: 14px; cursor: pointer;
+    transition: border-color .15s, background .15s;
+  }
+  #drop.over { border-color: #2b6cf6; background: #101a2b; }
+  #list { margin-top: 16px; font-size: 14px; }
+  .item { display: flex; gap: 10px; padding: 7px 0; border-top: 1px solid #1c2532; }
+  .item:first-child { border-top: 0; }
+  .item .name { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .ok { color: #7ee0a1; } .bad { color: #ff9b9b; } .dim { color: #7f8da1; }
+  #status { margin-top: 10px; font-size: 14px; color: #9fb0c6; min-height: 20px; }
+  a { color: #7fb0ff; }
+</style>
+</head>
+<body>
+<main>
+  <h1>TV photos</h1>
+  <p class="sub">Uploads go straight to <code>andrew-deltoro/tv-photos</code>. Images are
+     resized to 1920px and converted to JPEG in your browser before upload, so nothing
+     large or HEIC ever leaves this device.</p>
+
+  <div class="card">
+    <label for="token">GitHub token (stored only in this browser)</label>
+    <input id="token" type="password" autocomplete="off" spellcheck="false"
+           placeholder="github_pat_… or ghp_…">
+    <div class="row">
+      <button id="save">Save token</button>
+      <button id="forget">Forget token</button>
+      <span id="tstate" class="dim"></span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div id="drop">Tap to choose photos, or drop them here</div>
+    <input id="files" type="file" accept="image/*" multiple hidden>
+    <div id="status"></div>
+    <div id="list"></div>
+  </div>
+</main>
+
+<script>
+(function () {
+  'use strict';
+  var OWNER = 'andrew-deltoro';
+  var REPO = 'tv-photos';
+  var DIR = 'photos';
+  var MAX_W = 1920;
+  var KEY = 'tvphotos.token';
+
+  var tokenEl = document.getElementById('token');
+  var tstate = document.getElementById('tstate');
+  var drop = document.getElementById('drop');
+  var filesEl = document.getElementById('files');
+  var list = document.getElementById('list');
+  var status = document.getElementById('status');
+
+  function loadToken() {
+    try { return localStorage.getItem(KEY) || ''; } catch (e) { return ''; }
+  }
+  function refreshTokenState() {
+    var t = loadToken();
+    tstate.textContent = t ? 'token saved (' + t.slice(0, 12) + '…)' : 'no token saved';
+  }
+  tokenEl.value = loadToken();
+  refreshTokenState();
+
+  document.getElementById('save').onclick = function () {
+    var v = tokenEl.value.trim();
+    if (!v) { return; }
+    try { localStorage.setItem(KEY, v); } catch (e) {}
+    refreshTokenState();
+  };
+  document.getElementById('forget').onclick = function () {
+    try { localStorage.removeItem(KEY); } catch (e) {}
+    tokenEl.value = '';
+    refreshTokenState();
+  };
+
+  function pad(n) { return (n < 10 ? '0' : '') + n; }
+  function stamp(d) {
+    return d.getFullYear() + pad(d.getMonth() + 1) + pad(d.getDate()) + '-' +
+           pad(d.getHours()) + pad(d.getMinutes()) + pad(d.getSeconds());
+  }
+
+  function row(name) {
+    var el = document.createElement('div');
+    el.className = 'item';
+    var n = document.createElement('span');
+    n.className = 'name';
+    n.textContent = name;
+    var s = document.createElement('span');
+    s.className = 'dim';
+    s.textContent = 'waiting';
+    el.appendChild(n); el.appendChild(s);
+    list.appendChild(el);
+    return s;
+  }
+
+  // Decode (Safari handles HEIC), downscale, re-encode as JPEG.
+  function toJpeg(file) {
+    return new Promise(function (resolve, reject) {
+      var url = URL.createObjectURL(file);
+      var img = new Image();
+      img.onload = function () {
+        try {
+          var scale = Math.min(1, MAX_W / (img.naturalWidth || MAX_W));
+          var w = Math.round((img.naturalWidth || MAX_W) * scale);
+          var h = Math.round((img.naturalHeight || MAX_W) * scale);
+          var canvas = document.createElement('canvas');
+          canvas.width = w; canvas.height = h;
+          canvas.getContext('2d').drawImage(img, 0, 0, w, h);
+          canvas.toBlob(function (blob) {
+            URL.revokeObjectURL(url);
+            blob ? resolve(blob) : reject(new Error('encode failed'));
+          }, 'image/jpeg', 0.86);
+        } catch (e) { URL.revokeObjectURL(url); reject(e); }
+      };
+      img.onerror = function () { URL.revokeObjectURL(url); reject(new Error('cannot decode')); };
+      img.src = url;
+    });
+  }
+
+  function blobToBase64(blob) {
+    return new Promise(function (resolve, reject) {
+      var fr = new FileReader();
+      fr.onload = function () {
+        var s = String(fr.result);
+        resolve(s.slice(s.indexOf(',') + 1));
+      };
+      fr.onerror = function () { reject(new Error('read failed')); };
+      fr.readAsDataURL(blob);
+    });
+  }
+
+  async function uploadOne(file, stateEl) {
+    var token = loadToken();
+    if (!token) { throw new Error('no token saved'); }
+    stateEl.textContent = 'converting…';
+    stateEl.className = 'dim';
+    var blob = await toJpeg(file);
+    var b64 = await blobToBase64(blob);
+    var name = 'IMG-' + stamp(new Date()) + '-' + Math.floor(Math.random() * 900000 + 100000) + '.jpg';
+    stateEl.textContent = 'uploading ' + Math.round(blob.size / 1024) + ' KB…';
+    var res = await fetch(
+      'https://api.github.com/repos/' + OWNER + '/' + REPO + '/contents/' + DIR + '/' + name,
+      {
+        method: 'PUT',
+        headers: {
+          Authorization: 'Bearer ' + token,
+          Accept: 'application/vnd.github+json',
+          'X-GitHub-Api-Version': '2022-11-28',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ message: 'photo upload', content: b64, branch: 'main' })
+      }
+    );
+    if (!res.ok) {
+      var body = await res.text();
+      var msg = res.status;
+      try { msg = JSON.parse(body).message || msg; } catch (e) {}
+      throw new Error(msg);
+    }
+    stateEl.textContent = name;
+    stateEl.className = 'ok';
+  }
+
+  async function handle(files) {
+    var token = loadToken();
+    if (!token) { status.textContent = 'Save a token first.'; return; }
+    var arr = Array.prototype.slice.call(files);
+    if (!arr.length) { return; }
+    status.textContent = 'Uploading ' + arr.length + ' photo(s)…';
+    var ok = 0, failed = 0;
+    for (var i = 0; i < arr.length; i++) {
+      var st = row(arr[i].name);
+      try {
+        await uploadOne(arr[i], st);
+        ok++;
+      } catch (e) {
+        st.textContent = 'failed: ' + (e && e.message ? e.message : 'error');
+        st.className = 'bad';
+        failed++;
+      }
+      status.textContent = ok + ' uploaded, ' + failed + ' failed';
+      if (i < arr.length - 1) {
+        await new Promise(function (r) { setTimeout(r, 1000); });
+      }
+    }
+    status.textContent = 'Done — ' + ok + ' uploaded, ' + failed + ' failed. ' +
+      'The TV picks them up on its next launch.';
+  }
+
+  drop.onclick = function () { filesEl.click(); };
+  filesEl.onchange = function () { handle(filesEl.files); filesEl.value = ''; };
+  ['dragenter', 'dragover'].forEach(function (ev) {
+    drop.addEventListener(ev, function (e) { e.preventDefault(); drop.classList.add('over'); });
+  });
+  ['dragleave', 'drop'].forEach(function (ev) {
+    drop.addEventListener(ev, function (e) { e.preventDefault(); drop.classList.remove('over'); });
+  });
+  drop.addEventListener('drop', function (e) {
+    if (e.dataTransfer && e.dataTransfer.files) { handle(e.dataTransfer.files); }
+  });
+}());
+</script>
+</body>
+</html>
