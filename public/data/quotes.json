@@ -1,9 +1,80 @@
 {
-  "generatedAt": "2026-11-22T17:14:33.682Z",
+  "generatedAt": "2026-11-22T17:14:39.566Z",
   "source": {
     "stocks": "yahoo",
     "crypto": "coingecko"
   },
-  "count": 0,
-  "items": []
+  "count": 10,
+  "items": [
+    {
+      "sym": "SPY",
+      "price": 689.81,
+      "change": -3.64032575746994,
+      "dollarVol": 85035844193.18999,
+      "crypto": false
+    },
+    {
+      "sym": "QQQ",
+      "price": 608.45,
+      "change": -5.672516433089409,
+      "dollarVol": 73848088206.45001,
+      "crypto": false
+    },
+    {
+      "sym": "NVDA",
+      "price": 125.53,
+      "change": -14.008768324427997,
+      "dollarVol": 69516722310.31,
+      "crypto": false
+    },
+    {
+      "sym": "BTC",
+      "price": 60831,
+      "change": 1.07404,
+      "dollarVol": 30215783715,
+      "crypto": true
+    },
+    {
+      "sym": "AMD",
+      "price": 424.39,
+      "change": -13.24638688444163,
+      "dollarVol": 26911447114.129997,
+      "crypto": false
+    },
+    {
+      "sym": "AAPL",
+      "price": 342.56,
+      "change": -1.9042982732453189,
+      "dollarVol": 19725265255.68,
+      "crypto": false
+    },
+    {
+      "sym": "MSFT",
+      "price": 484.52,
+      "change": -2.7654023680513804,
+      "dollarVol": 15258000423.72,
+      "crypto": false
+    },
+    {
+      "sym": "AMZN",
+      "price": 246.82,
+      "change": -4.099156855888414,
+      "dollarVol": 14652077103.02,
+      "crypto": false
+    },
+    {
+      "sym": "WIX",
+      "price": 59.03,
+      "change": -0.3713080168776352,
+      "dollarVol": 114743871.69,
+      "crypto": false
+    },
+    {
+      "sym": "VIX",
+      "price": 35.89,
+      "change": 26.195499296765117,
+      "dollarVol": 0,
+      "crypto": false
+    }
+  ]
 }
