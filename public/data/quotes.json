@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-23T08:41:02.323Z",
+  "generatedAt": "2026-11-23T08:51:02.381Z",
   "source": {
     "stocks": "yahoo",
     "crypto": "coingecko"
@@ -29,9 +29,9 @@
     },
     {
       "sym": "BTC",
-      "price": 61385,
-      "change": 2.11454,
-      "dollarVol": 27745842116,
+      "price": 61429,
+      "change": 3.03462,
+      "dollarVol": 27553102548,
       "crypto": true
     },
     {
@@ -71,8 +71,8 @@
     },
     {
       "sym": "VIX",
-      "price": 31.23,
-      "change": 9.810126582278478,
+      "price": 31.33,
+      "change": 10.161744022503505,
       "dollarVol": 0,
       "crypto": false
     }
