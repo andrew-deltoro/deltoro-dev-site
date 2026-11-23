@@ -1,80 +1,9 @@
 {
-  "generatedAt": "2026-11-23T11:21:02.491Z",
+  "generatedAt": "2026-11-23T14:09:40.704Z",
   "source": {
     "stocks": "yahoo",
     "crypto": "coingecko"
   },
-  "count": 10,
-  "items": [
-    {
-      "sym": "BTC",
-      "price": 61275,
-      "change": 0.69612,
-      "dollarVol": 25288078235,
-      "crypto": true
-    },
-    {
-      "sym": "ETH",
-      "price": 1721.79,
-      "change": 0.84599,
-      "dollarVol": 7779063002,
-      "crypto": true
-    },
-    {
-      "sym": "SOL",
-      "price": 72.24,
-      "change": 2.20648,
-      "dollarVol": 1852324647,
-      "crypto": true
-    },
-    {
-      "sym": "XRP",
-      "price": 0.939084,
-      "change": 0.7748,
-      "dollarVol": 1104937240,
-      "crypto": true
-    },
-    {
-      "sym": "HYPE",
-      "price": 63.92,
-      "change": 2.32056,
-      "dollarVol": 768970788,
-      "crypto": true
-    },
-    {
-      "sym": "USD1",
-      "price": 0.999649,
-      "change": 0.01427,
-      "dollarVol": 617627601,
-      "crypto": true
-    },
-    {
-      "sym": "BNB",
-      "price": 555.68,
-      "change": 0.69246,
-      "dollarVol": 535115406,
-      "crypto": true
-    },
-    {
-      "sym": "ZEC",
-      "price": 788.78,
-      "change": -1.15315,
-      "dollarVol": 426017601,
-      "crypto": true
-    },
-    {
-      "sym": "WIX",
-      "price": 59.03,
-      "change": -0.3713080168776352,
-      "dollarVol": 0,
-      "crypto": false
-    },
-    {
-      "sym": "VIX",
-      "price": 29.69,
-      "change": 4.395218002812939,
-      "dollarVol": 0,
-      "crypto": false
-    }
-  ]
+  "count": 0,
+  "items": []
 }
