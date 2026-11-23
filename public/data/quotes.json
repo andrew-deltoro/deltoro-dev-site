@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-23T18:31:03.046Z",
+  "generatedAt": "2026-11-23T18:41:02.743Z",
   "source": {
     "stocks": "yahoo",
     "crypto": "coingecko"
@@ -8,71 +8,71 @@
   "items": [
     {
       "sym": "NVDA",
-      "price": 165.33,
-      "change": 31.705568390026293,
-      "dollarVol": 94645572813.99,
+      "price": 164.345,
+      "change": 30.9208954034892,
+      "dollarVol": 946155346276.635,
       "crypto": false
     },
     {
-      "sym": "BTC",
-      "price": 61533,
-      "change": 1.58377,
-      "dollarVol": 37520818899,
-      "crypto": true
+      "sym": "QQQ",
+      "price": 649.438,
+      "change": 6.736461500534134,
+      "dollarVol": 550832495813.224,
+      "crypto": false
     },
     {
-      "sym": "QQQ",
-      "price": 652.11,
-      "change": 7.1756101569561945,
-      "dollarVol": 36998300115.57,
+      "sym": "TSLA",
+      "price": 386.43,
+      "change": 11.74310334856284,
+      "dollarVol": 85510472772.45,
       "crypto": false
     },
     {
       "sym": "SPY",
-      "price": 724.05,
-      "change": 4.963685652571,
-      "dollarVol": 35487679465.35,
+      "price": 721.81,
+      "change": 4.638958553804671,
+      "dollarVol": 81435750434.28,
+      "crypto": false
+    },
+    {
+      "sym": "BTC",
+      "price": 61361,
+      "change": 1.12953,
+      "dollarVol": 37458933518,
+      "crypto": true
+    },
+    {
+      "sym": "AAPL",
+      "price": 348.68,
+      "change": 1.7865483418963115,
+      "dollarVol": 26929470638.96,
       "crypto": false
     },
     {
       "sym": "AMD",
-      "price": 456.12,
-      "change": 7.476613492306609,
-      "dollarVol": 14819176877.4,
+      "price": 451.22,
+      "change": 6.322015127594911,
+      "dollarVol": 24761488037.440002,
       "crypto": false
     },
     {
-      "sym": "ETH",
-      "price": 1744.65,
-      "change": 1.98902,
-      "dollarVol": 13412790518,
-      "crypto": true
-    },
-    {
-      "sym": "TSLA",
-      "price": 388.08,
-      "change": 12.220230177549011,
-      "dollarVol": 10753652558.88,
-      "crypto": false
-    },
-    {
-      "sym": "AAPL",
-      "price": 349.415,
-      "change": 2.001109294722098,
-      "dollarVol": 8748391407.58,
+      "sym": "AVGO",
+      "price": 310.15,
+      "change": 1.8856147958345493,
+      "dollarVol": 17943449425.149998,
       "crypto": false
     },
     {
       "sym": "WIX",
-      "price": 64.425,
-      "change": 9.13942063357614,
-      "dollarVol": 27486024.299999997,
+      "price": 64.28,
+      "change": 8.893782822293748,
+      "dollarVol": 28074547.12,
       "crypto": false
     },
     {
       "sym": "VIX",
-      "price": 26.76,
-      "change": -25.438840902758425,
+      "price": 26.18,
+      "change": -7.9465541490858,
       "dollarVol": 0,
       "crypto": false
     }
