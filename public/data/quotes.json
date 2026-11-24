@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-24T09:41:02.296Z",
+  "generatedAt": "2026-11-24T09:51:03.097Z",
   "source": {
     "stocks": "yahoo",
     "crypto": "coingecko"
@@ -8,58 +8,58 @@
   "items": [
     {
       "sym": "BTC",
-      "price": 60017,
-      "change": -2.43858,
-      "dollarVol": 38537377453,
+      "price": 59954,
+      "change": -2.26094,
+      "dollarVol": 38815003132,
       "crypto": true
     },
     {
       "sym": "ETH",
-      "price": 1685.99,
-      "change": -2.27724,
-      "dollarVol": 14538386385,
+      "price": 1684.43,
+      "change": -2.07337,
+      "dollarVol": 15146443369,
       "crypto": true
     },
     {
       "sym": "SOL",
-      "price": 70.83,
-      "change": -2.2033,
-      "dollarVol": 3695871277,
+      "price": 70.75,
+      "change": -1.93161,
+      "dollarVol": 3697903478,
       "crypto": true
     },
     {
       "sym": "XRP",
-      "price": 0.935395,
-      "change": -0.27495,
-      "dollarVol": 2413158260,
+      "price": 0.934321,
+      "change": -0.13738,
+      "dollarVol": 2430337985,
       "crypto": true
     },
     {
       "sym": "HYPE",
-      "price": 63.16,
-      "change": -1.11745,
-      "dollarVol": 1232302903,
+      "price": 63.1,
+      "change": -0.80995,
+      "dollarVol": 1232117654,
       "crypto": true
     },
     {
       "sym": "USD1",
-      "price": 0.99955,
-      "change": 0.00266,
-      "dollarVol": 907581631,
+      "price": 0.999572,
+      "change": 0.00836,
+      "dollarVol": 921257296,
       "crypto": true
     },
     {
       "sym": "ZEC",
-      "price": 746.39,
-      "change": -6.93751,
-      "dollarVol": 900032894,
+      "price": 744.26,
+      "change": -6.38097,
+      "dollarVol": 900611120,
       "crypto": true
     },
     {
       "sym": "BNB",
-      "price": 548,
-      "change": -1.72443,
-      "dollarVol": 731276384,
+      "price": 547.69,
+      "change": -1.48391,
+      "dollarVol": 735749708,
       "crypto": true
     },
     {
@@ -71,8 +71,8 @@
     },
     {
       "sym": "VIX",
-      "price": 27.44,
-      "change": 3.0803906836964696,
+      "price": 27.43,
+      "change": 3.042824943651385,
       "dollarVol": 0,
       "crypto": false
     }
