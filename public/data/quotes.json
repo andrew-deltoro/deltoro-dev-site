@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-24T21:21:02.590Z",
+  "generatedAt": "2026-11-24T21:31:02.906Z",
   "source": {
     "stocks": "yahoo",
     "crypto": "coingecko"
@@ -15,9 +15,9 @@
     },
     {
       "sym": "SPY",
-      "price": 718.58,
-      "change": -0.5136441041686751,
-      "dollarVol": 41754753694.12,
+      "price": 718.78,
+      "change": -0.4859543950490788,
+      "dollarVol": 41766375156.92,
       "crypto": false
     },
     {
@@ -29,9 +29,9 @@
     },
     {
       "sym": "BTC",
-      "price": 59793,
-      "change": -2.28019,
-      "dollarVol": 30502740402,
+      "price": 59846,
+      "change": -2.45949,
+      "dollarVol": 30554939671,
       "crypto": true
     },
     {
@@ -50,9 +50,9 @@
     },
     {
       "sym": "ETH",
-      "price": 1677.25,
-      "change": -2.34228,
-      "dollarVol": 11169345614,
+      "price": 1678.76,
+      "change": -2.51587,
+      "dollarVol": 11162714283,
       "crypto": true
     },
     {
@@ -71,8 +71,8 @@
     },
     {
       "sym": "VIX",
-      "price": 26.32,
-      "change": -1.1269722013523693,
+      "price": 26.36,
+      "change": -0.9767092411720569,
       "dollarVol": 0,
       "crypto": false
     }
