@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-24T20:31:02.510Z",
+  "generatedAt": "2026-11-24T20:41:02.382Z",
   "source": {
     "stocks": "yahoo",
     "crypto": "coingecko"
@@ -7,72 +7,72 @@
   "count": 10,
   "items": [
     {
+      "sym": "QQQ",
+      "price": 635.315,
+      "change": -2.413867256501224,
+      "dollarVol": 234231627286.09503,
+      "crypto": false
+    },
+    {
       "sym": "NVDA",
-      "price": 153.061,
-      "change": -7.263859436534386,
-      "dollarVol": 46952091902.137,
+      "price": 152.645,
+      "change": -7.515904271432899,
+      "dollarVol": 184966722869.48502,
       "crypto": false
     },
     {
       "sym": "SPY",
-      "price": 716.76,
-      "change": -0.7656204571570938,
-      "dollarVol": 32429619125.64,
+      "price": 716.22,
+      "change": -0.8403826717800242,
+      "dollarVol": 109082077212.06,
       "crypto": false
     },
     {
       "sym": "BTC",
-      "price": 59485,
-      "change": -2.69879,
-      "dollarVol": 30558589487,
+      "price": 59455,
+      "change": -2.78271,
+      "dollarVol": 30509904826,
       "crypto": true
     },
     {
-      "sym": "QQQ",
-      "price": 635.98,
-      "change": -2.311721426047948,
-      "dollarVol": 29014264265.06,
-      "crypto": false
-    },
-    {
-      "sym": "AMD",
-      "price": 411.56,
-      "change": -9.240065275878793,
-      "dollarVol": 15197964212,
-      "crypto": false
-    },
-    {
-      "sym": "ETH",
-      "price": 1668.14,
-      "change": -3.39056,
-      "dollarVol": 11343406365,
-      "crypto": true
-    },
-    {
-      "sym": "TSLA",
-      "price": 383.135,
-      "change": -0.6031754267628259,
-      "dollarVol": 8510280442.24,
+      "sym": "GOOGL",
+      "price": 277.575,
+      "change": -1.6040411201701643,
+      "dollarVol": 27157918014.6,
       "crypto": false
     },
     {
       "sym": "AAPL",
-      "price": 352.16,
-      "change": 0.8823192391429017,
-      "dollarVol": 8464169121.6,
+      "price": 352.245,
+      "change": 0.906668958404956,
+      "dollarVol": 26652190651.815,
+      "crypto": false
+    },
+    {
+      "sym": "TSLA",
+      "price": 382.795,
+      "change": -0.6913817257302868,
+      "dollarVol": 18841326080.36,
+      "crypto": false
+    },
+    {
+      "sym": "AMD",
+      "price": 410.33,
+      "change": -9.511313015480969,
+      "dollarVol": 15421625655.43,
       "crypto": false
     },
     {
       "sym": "WIX",
-      "price": 65.67,
-      "change": 4.437022900763357,
-      "dollarVol": 60814031.85,
+      "price": 65.35,
+      "change": 3.928117048346043,
+      "dollarVol": 63160252.199999996,
       "crypto": false
     },
     {
       "sym": "VIX",
-      "price": 27.01,
-      "change": 1.4650638617580787,
+      "price": 27.12,
+      "change": 1.8782870022539442,
       "dollarVol": 0,
       "crypto": false
     }
