@@ -1,11 +1,18 @@
 {
-  "generatedAt": "2026-11-24T08:21:02.349Z",
+  "generatedAt": "2026-11-24T08:31:02.051Z",
   "source": {
     "stocks": "yahoo",
     "crypto": "coingecko"
   },
   "count": 10,
   "items": [
+    {
+      "sym": "QQQ",
+      "price": 651.03,
+      "change": 6.998109951516135,
+      "dollarVol": 143331885222.63,
+      "crypto": false
+    },
     {
       "sym": "NVDA",
       "price": 165.05,
@@ -21,58 +28,51 @@
       "crypto": false
     },
     {
-      "sym": "QQQ",
-      "price": 651.03,
-      "change": 6.998109951516135,
-      "dollarVol": 51501487233.06,
-      "crypto": false
-    },
-    {
       "sym": "BTC",
-      "price": 60319,
-      "change": -1.50322,
-      "dollarVol": 38799514343,
+      "price": 60146,
+      "change": -1.79854,
+      "dollarVol": 38534106985,
       "crypto": true
     },
     {
       "sym": "AMD",
       "price": 453.46,
       "change": 6.8498315228916775,
-      "dollarVol": 20154876763.28,
+      "dollarVol": 29845445745.92,
       "crypto": false
-    },
-    {
-      "sym": "ETH",
-      "price": 1696.69,
-      "change": -1.23829,
-      "dollarVol": 15017107411,
-      "crypto": true
     },
     {
       "sym": "TSLA",
       "price": 385.46,
       "change": 11.462610606673989,
-      "dollarVol": 14586050010.72,
+      "dollarVol": 20638795407.02,
       "crypto": false
+    },
+    {
+      "sym": "ETH",
+      "price": 1691.95,
+      "change": -1.6271,
+      "dollarVol": 14981967081,
+      "crypto": true
     },
     {
       "sym": "AAPL",
       "price": 349.08,
       "change": 1.9033162073797238,
-      "dollarVol": 13535731293.359999,
+      "dollarVol": 13534979375.039999,
       "crypto": false
     },
     {
       "sym": "WIX",
       "price": 62.88,
       "change": 6.5221074030154185,
-      "dollarVol": 56971606.56,
+      "dollarVol": 54825134.88,
       "crypto": false
     },
     {
       "sym": "VIX",
-      "price": 26.62,
-      "change": 0,
+      "price": 26.51,
+      "change": -0.4132231404958656,
       "dollarVol": 0,
       "crypto": false
     }
