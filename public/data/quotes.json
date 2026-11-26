@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-26T02:01:03.024Z",
+  "generatedAt": "2026-11-26T02:11:02.978Z",
   "source": {
     "stocks": "yahoo",
     "crypto": "coingecko"
@@ -21,17 +21,17 @@
       "crypto": false
     },
     {
-      "sym": "SPY",
-      "price": 716.7,
-      "change": -0.2893792259105606,
-      "dollarVol": 156844996693.5,
-      "crypto": false
-    },
-    {
       "sym": "TSLA",
       "price": 380.14,
       "change": -1.1802017261100188,
       "dollarVol": 71747483708.48,
+      "crypto": false
+    },
+    {
+      "sym": "SPY",
+      "price": 716.7,
+      "change": -0.2893792259105606,
+      "dollarVol": 47739695181,
       "crypto": false
     },
     {
@@ -43,23 +43,23 @@
     },
     {
       "sym": "BTC",
-      "price": 60789,
-      "change": 2.70661,
-      "dollarVol": 39067129200,
+      "price": 60757,
+      "change": 3.00598,
+      "dollarVol": 38680548914,
       "crypto": true
+    },
+    {
+      "sym": "GOOGL",
+      "price": 273.1,
+      "change": -2.1322343666009633,
+      "dollarVol": 23159545544.7,
+      "crypto": false
     },
     {
       "sym": "AMD",
       "price": 406.03,
       "change": -1.7518813366564256,
-      "dollarVol": 35842027834.02,
-      "crypto": false
-    },
-    {
-      "sym": "META",
-      "price": 609.89,
-      "change": 3.402733037197778,
-      "dollarVol": 23401376838.48,
+      "dollarVol": 19599036023.629997,
       "crypto": false
     },
     {
