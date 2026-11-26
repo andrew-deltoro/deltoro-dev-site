@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-26T11:41:03.625Z",
+  "generatedAt": "2026-11-26T11:51:03.776Z",
   "source": {
     "stocks": "yahoo",
     "crypto": "coingecko"
@@ -10,28 +10,28 @@
       "sym": "NVDA",
       "price": 149.3,
       "change": -3.9129875144806183,
-      "dollarVol": 49385682130.4,
+      "dollarVol": 49385859050.9,
       "crypto": false
     },
     {
       "sym": "QQQ",
       "price": 633.93,
       "change": -0.6535025858016099,
-      "dollarVol": 48890050254.869995,
+      "dollarVol": 48890094629.96999,
       "crypto": false
     },
     {
       "sym": "SPY",
       "price": 716.7,
       "change": -0.2893792259105606,
-      "dollarVol": 47739695181,
+      "dollarVol": 47746657921.5,
       "crypto": false
     },
     {
       "sym": "BTC",
-      "price": 60612,
-      "change": 3.59625,
-      "dollarVol": 36513156946,
+      "price": 60681,
+      "change": 3.42697,
+      "dollarVol": 36580009842,
       "crypto": true
     },
     {
@@ -45,34 +45,34 @@
       "sym": "AAPL",
       "price": 355.58,
       "change": 0.4264693422204623,
-      "dollarVol": 19113529787.059998,
-      "crypto": false
-    },
-    {
-      "sym": "TSLA",
-      "price": 380.14,
-      "change": -1.1802017261100188,
-      "dollarVol": 12783613637.859999,
+      "dollarVol": 13152737788.56,
       "crypto": false
     },
     {
       "sym": "ETH",
-      "price": 1697.96,
-      "change": 3.62136,
-      "dollarVol": 12653321678,
+      "price": 1699.45,
+      "change": 3.46589,
+      "dollarVol": 12636057500,
       "crypto": true
+    },
+    {
+      "sym": "AMZN",
+      "price": 244.43,
+      "change": -3.1154623647389847,
+      "dollarVol": 11697442568.86,
+      "crypto": false
     },
     {
       "sym": "WIX",
       "price": 67.82,
       "change": 3.163979312442955,
-      "dollarVol": 41916083.17999999,
+      "dollarVol": 48833587.53999999,
       "crypto": false
     },
     {
       "sym": "VIX",
-      "price": 27.06,
-      "change": -4.347826086956523,
+      "price": 27.09,
+      "change": -4.2417815482502625,
       "dollarVol": 0,
       "crypto": false
     }
