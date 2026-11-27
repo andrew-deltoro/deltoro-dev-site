@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-27T18:31:03.204Z",
+  "generatedAt": "2026-11-27T18:41:04.006Z",
   "source": {
     "stocks": "yahoo",
     "crypto": "coingecko"
@@ -7,66 +7,66 @@
   "count": 10,
   "items": [
     {
-      "sym": "BTC",
-      "price": 59788,
-      "change": -1.39095,
-      "dollarVol": 29047713620,
-      "crypto": true
+      "sym": "QQQ",
+      "price": 650.99,
+      "change": 2.6911488650166517,
+      "dollarVol": 157858057327.8,
+      "crypto": false
     },
     {
       "sym": "NVDA",
       "price": 150.49,
       "change": 0.7970529135967834,
-      "dollarVol": 26144778190,
-      "crypto": false
-    },
-    {
-      "sym": "QQQ",
-      "price": 650.99,
-      "change": 2.6911488650166517,
-      "dollarVol": 21460965993.4,
+      "dollarVol": 155970620065,
       "crypto": false
     },
     {
       "sym": "SPY",
       "price": 728.32,
       "change": 1.6213199386075072,
-      "dollarVol": 18025289274.88,
+      "dollarVol": 77778329199.36,
       "crypto": false
-    },
-    {
-      "sym": "ETH",
-      "price": 1666.64,
-      "change": -1.8976,
-      "dollarVol": 11565549066,
-      "crypto": true
     },
     {
       "sym": "TSLA",
       "price": 400,
       "change": 5.224391013837011,
-      "dollarVol": 9952490800,
+      "dollarVol": 35104680800,
+      "crypto": false
+    },
+    {
+      "sym": "BTC",
+      "price": 59807,
+      "change": -1.17547,
+      "dollarVol": 29058808488,
+      "crypto": true
+    },
+    {
+      "sym": "AAPL",
+      "price": 358.54,
+      "change": 0.8324427695596031,
+      "dollarVol": 14545066071.900002,
       "crypto": false
     },
     {
       "sym": "AMD",
       "price": 424.54,
       "change": 4.558776445090277,
-      "dollarVol": 9320650036.16,
+      "dollarVol": 12705985912.74,
       "crypto": false
     },
     {
-      "sym": "AAPL",
-      "price": 358.54,
-      "change": 0.8324427695596031,
-      "dollarVol": 7650409994.5,
-      "crypto": false
+      "sym": "ETH",
+      "price": 1667.27,
+      "change": -1.75222,
+      "dollarVol": 11554616022,
+      "crypto": true
     },
     {
       "sym": "WIX",
       "price": 65.25,
       "change": -3.789442642288401,
-      "dollarVol": 29986616.25,
+      "dollarVol": 30005734.5,
       "crypto": false
     },
     {
