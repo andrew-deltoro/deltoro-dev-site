@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-28T07:41:02.784Z",
+  "generatedAt": "2026-11-28T07:51:03.818Z",
   "source": {
     "stocks": "yahoo",
     "crypto": "coingecko"
@@ -8,9 +8,9 @@
   "items": [
     {
       "sym": "BTC",
-      "price": 59689,
-      "change": -2.97917,
-      "dollarVol": 26731083025,
+      "price": 59784,
+      "change": -2.95401,
+      "dollarVol": 26561104212,
       "crypto": true
     },
     {
@@ -36,9 +36,9 @@
     },
     {
       "sym": "ETH",
-      "price": 1654.76,
-      "change": -4.20586,
-      "dollarVol": 10091636983,
+      "price": 1657.66,
+      "change": -4.23008,
+      "dollarVol": 10065537501,
       "crypto": true
     },
     {
