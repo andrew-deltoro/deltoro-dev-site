@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-28T02:31:02.209Z",
+  "generatedAt": "2026-11-28T02:41:02.502Z",
   "source": {
     "stocks": "yahoo",
     "crypto": "coingecko"
@@ -7,25 +7,18 @@
   "count": 10,
   "items": [
     {
+      "sym": "BTC",
+      "price": 59980,
+      "change": -2.5825,
+      "dollarVol": 27829978700,
+      "crypto": true
+    },
+    {
       "sym": "NVDA",
       "price": 150.49,
       "change": 0.7970529135967834,
-      "dollarVol": 64003231912.47,
+      "dollarVol": 24489006697.850002,
       "crypto": false
-    },
-    {
-      "sym": "SPY",
-      "price": 728.32,
-      "change": 1.6213199386075072,
-      "dollarVol": 40819430731.520004,
-      "crypto": false
-    },
-    {
-      "sym": "BTC",
-      "price": 60092,
-      "change": -2.35883,
-      "dollarVol": 28153755976,
-      "crypto": true
     },
     {
       "sym": "QQQ",
@@ -35,18 +28,18 @@
       "crypto": false
     },
     {
-      "sym": "ETH",
-      "price": 1667.56,
-      "change": -3.48154,
-      "dollarVol": 10589949181,
-      "crypto": true
+      "sym": "SPY",
+      "price": 728.32,
+      "change": 1.6213199386075072,
+      "dollarVol": 18025289274.88,
+      "crypto": false
     },
     {
-      "sym": "AAPL",
-      "price": 358.54,
-      "change": 0.8324427695596031,
-      "dollarVol": 9064496774.060001,
-      "crypto": false
+      "sym": "ETH",
+      "price": 1663.11,
+      "change": -3.80016,
+      "dollarVol": 10406566528,
+      "crypto": true
     },
     {
       "sym": "TSLA",
@@ -60,6 +53,13 @@
       "price": 424.54,
       "change": 4.558776445090277,
       "dollarVol": 8523934073.38,
+      "crypto": false
+    },
+    {
+      "sym": "AAPL",
+      "price": 358.54,
+      "change": 0.8324427695596031,
+      "dollarVol": 5945671688.320001,
       "crypto": false
     },
     {
